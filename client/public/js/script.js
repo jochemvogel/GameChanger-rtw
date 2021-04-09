@@ -41,6 +41,7 @@ function newNotification(title, body) {
 }
 
 const socket = io(`${window.location.hostname}:8001`);
+// const socket = io(`https://gamechanger-wss.herokuapp.com:8001/`);
 
 console.log(socket);
 
