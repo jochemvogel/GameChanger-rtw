@@ -42,13 +42,15 @@ function newNotification(title, body) {
 
 const socket = io(`${window.location.hostname}:8001`);
 
+console.log(socket);
+
 function emitMsg() {
     socket.emit("test-msg", true);
-    console.log("click");
+    console.log("Emit msg");
 }
 
 socket.on("test-msg", () => {
-    alert("HOOO");
+    alert("Socket on 'test-msg'");
 });
 
 function updateGame() {
