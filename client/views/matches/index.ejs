@@ -2,30 +2,25 @@
 
 <h2>Matches</h2>
 
+<button onclick="emitMsg()">Click</button>
+
 <section>
     <% if (matches !== undefined & matches !== 'No matches') { %> <% for(var i =
     0; i < matches.length; i++) { %>
 
     <article class="match-card">
-        <h3>
-            <%= matches[i].team1 %> - <%= matches[i].team2 %>
-        </h3>
+        <h3><%= matches[i].team1 %> - <%= matches[i].team2 %></h3>
 
-        <% if (matches[i].score1 && matches[i].score2) { %>
+        <% if (matches[i].score1 && matches[i].score2) { %> <% if
+        (matches[i].finished) { %>
 
-            <% if (matches[i].finished) { %>
-
-                <p><%= matches[i].score1 %> - <%= matches[i].score2 %> ✅</p>
+        <p><%= matches[i].score1 %> - <%= matches[i].score2 %> ✅</p>
         <% } else { %>
 
-        <p>
-            <%= matches[i].score1 %> - <%= matches[i].score2 %> (playing..)
-        </p>
+        <p><%= matches[i].score1 %> - <%= matches[i].score2 %> (playing..)</p>
 
-        <% }%>
-
-        <% } else { %>
-            <p>Starting at <%= matches[i].time %></p>
+        <% }%> <% } else { %>
+        <p>Starting at <%= matches[i].time %></p>
         <% } %>
 
         <a href="/details/<%= matches[i].id %>">
@@ -37,10 +32,8 @@
 
     <hr class="css-disabled" />
 
-    <% } %>
-
-    <% } else{ %>
-        <p>There are no matches</p>
+    <% } %> <% } else{ %>
+    <p>There are no matches</p>
     <% } %>
 </section>
 

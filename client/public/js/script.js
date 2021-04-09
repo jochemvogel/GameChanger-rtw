@@ -52,7 +52,16 @@ function newNotification(title, body) {
 
 // console.log(process.env.IS_DEVELOPMENT);
 
-// const socket = io("localhost:8001");
+const socket = io("http://gamechanger-rtw.herokuapp.com:8001");
+
+function emitMsg() {
+    socket.emit("test-msg", true);
+    console.log("click");
+}
+
+socket.on("test-msg", (emitted) => {
+    alert("HOOO");
+});
 
 function updateGame() {
     const title = "Game Update!";
