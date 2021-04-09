@@ -1,0 +1,76 @@
+<%- include('../includes/head') %>
+
+<h2>Details</h2>
+
+<a href="/">
+    <button class="btn">
+        &larr; Go Back
+    </button>
+</a>
+
+<% if (match) { %>
+    <h3><%= match.team1 %> - <%= match.team2 %></h3>
+
+    <% if (match.score1 !== "") { %>
+    <div class="score-container">
+        <div>
+            <h4><span class="css-disabled">Score team 1: </span><%= match.score1 %></h4>
+        </div>
+
+        <div>
+            <h4><span class="css-disabled">Score team 2: </span><%= match.score2 %></h4>
+        </div>
+    </div>
+
+    <% } else { %>
+        <p>No score available, yet</p>
+    <% } %>
+
+    <h4><%= formattedDate %> at <%= match.time %></h4>
+
+<% } %>
+
+<% if (!match) { %>
+    <h2>This is not a valid match. Please go back and select a valid one</h2>
+<% } %>
+
+<% if (jsEnabled === true ) { %>
+    <button onclick="enableNotifications()" class="btn">Enable notifications 🔔</button>
+<% } %>
+
+<hr />
+
+<section>
+
+    <h3>Comments</h3>
+
+    <article class="comment">
+        <h4>John Doe</h4>
+        <p class="comment-body">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum, laborum nisi maiores animi beatae inventore dolorem quo. Amet veritatis ducimus vero ea magnam officia placeat accusantium nihil adipisci, officiis eaque fugiat delectus, reprehenderit sunt voluptas? Tempora maxime voluptate reprehenderit sunt!</p>
+    </article>
+
+    <article class="comment">
+        <h4>Jochem Vogel</h4>
+        <p class="comment-body">Ik heb ervoor gekozen om de comments niet dynamisch te maken. Het zou mij simpelweg te veel tijd kosten.</p>
+    </article>
+
+    <h4>Add your own comment</h4>
+
+    <form action="/admin/edit-match/<%= match.id %>" method="POST">
+        <div>
+            <input type="hidden" name="id" value="<%= match.id %>" />
+        </div>
+        <div>
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" maxlength="10" aria-label="Name of person that comments" required />
+        </div>
+        <div>
+            <label for="message">Message*</label>
+            <textarea name="message" id="message" rows="6" aria-label="Comment message" required></textarea>
+        </div>
+        <button class="btn add-btn" type="submit">Add comment</button>
+    </form>
+
+</section>
+
+<%- include('../includes/end') %>

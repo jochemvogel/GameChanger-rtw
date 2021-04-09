@@ -1,0 +1,42 @@
+<%- include('../includes/head') %>
+
+<h2>Add Match</h2>
+
+<a href="/admin">
+    <button class="btn">&larr; Go Back</button>
+</a>
+
+<section>
+	<form action="/admin/add-match" method="POST">
+		<div>
+			<input type="hidden" name="id" value="<%= id %>" />
+		</div>
+		<div>
+			<label for="team1">Team 1*</label>
+			<input type="text" name="team1" id="team1" aria-label="Name of team 1" maxlength="8" required />
+		</div>
+		<div>
+			<label for="team2">Team 2*</label>
+			<input type="text" name="team2" id="team2" aria-label="Name of team 2" maxlength="8"  required />
+		</div>
+		<div>
+			<label for="date">Date*</label>
+			<input type="date" name="date" id="date" aria-label="Date of the game" placeholder="dd-mm-yyyy" required />
+		</div>
+		<div>
+			<label for="time">Time*</label>
+			<input type="time" name="time" id="time" aria-label="Time when the game starts" placeholder="10:00" required />
+		</div>
+		<div>
+			<label for="score1">Score team 1</label>
+			<input type="number" name="score1" id="score1" aria-label="Score of team 1"  />
+		</div>
+		<div>
+			<label for="score2">Score team 2</label>
+			<input type="number" name="score2" id="score2" aria-label="Score of team 1"  />
+		</div>
+		<input type="submit" class="btn add-btn" value="Save" />
+	</form>
+</section>
+
+<%- include('../includes/end') %>

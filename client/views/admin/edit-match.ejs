@@ -1,0 +1,61 @@
+<%- include('../includes/head') %>
+
+<h2>Edit Match</h2>
+
+<a href="/admin">
+    <button class="btn">&larr; Go Back</button>
+</a>
+
+<form action="/admin/edit-match/<%= match.id %>" method="POST">
+    <div>
+        <input type="hidden" name="id" value="<%= match.id %>" />
+    </div>
+    <div>
+        <label for="team1">Team 1*</label>
+        <input type="text" name="team1" id="team1" value="<%= match.team1 %>" maxlength="8" aria-label="Name of team 1" required />
+    </div>
+    <div>
+        <label for="team2">Team 2*</label>
+        <input type="text" name="team2" id="team2" value="<%= match.team2 %>" maxlength="8" aria-label="Name of team 2" required />
+    </div>
+    <div>
+        <label for="date">Date*</label>
+        <input type="date" name="date" id="date" value="<%= match.date %>" aria-label="Date of the game"  placeholder="dd-mm-yyyy" required  />
+    </div>
+    <div>
+        <label for="time">Time*</label>
+        <input type="time" name="time" id="time" value="<%= match.time %>" aria-label="Time when the game starts" placeholder="10:00" required  />
+    </div>
+    <div>
+        <label for="score1">Score team 1</label>
+        <% if (match.score1 !== "") { %>
+            <input type="number" name="score1" id="score1" value="<%= match.score1 %>" aria-label="Score team 1" />
+        <% } else { %>
+            <input type="number" name="score1" id="score1" aria-label="Score team 1"/>
+        <% } %>
+    </div>
+    <div>
+        <label for="score2">Score team 2</label>
+        <% if (match.score2 !== "") { %>
+            <input type="number" name="score2" id="score2" value="<%= match.score2 %>" aria-label="Score team 2" />
+        <% } else { %>
+            <input type="number" id="score2" name="score2" aria-label="Score team 2" />
+        <% } %>
+    </div>
+    <div class="finished">
+        <label for="finished">Game Finished?</label>
+        <% if (match.finished) { %>
+            <input type="checkbox" name="finished" id="finished" aria-label="Is game finished" checked>
+        <% } else { %>
+            <input type="checkbox" name="finished" id="finished" aria-label="Is game finished">
+        <% } %>
+    </div>
+    <input class="btn add-btn" onclick="updateGame()" type="submit" value="Save" />
+</form>
+
+<form action="/admin/remove-match/<%= match.id %>" method="POST">
+    <button class="btn delete-btn" type="submit">Remove Match</button>
+</form>
+
+<%- include('../includes/end') %>
+

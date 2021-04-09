@@ -1,0 +1,52 @@
+<%- include('../includes/head') %>
+
+<h2>Matches Admin</h2>
+
+<a href="/admin/add-match">
+    <button class="btn">
+        Add Match
+    </button>
+</a>
+
+<section>
+
+<% if (matches !== undefined & matches !== 'No matches') { %>
+
+	<% for(var i = 0; i < matches.length; i++) { %>
+
+        <article class="match-card">
+            <h3><%= matches[i].team1 %> - <%= matches[i].team2 %></h3>
+            <% if (matches[i].score1 && matches[i].score2) { %>
+
+                <% if (matches[i].finished) { %>
+                    <p><%= matches[i].score1 %> - <%= matches[i].score2 %> ✅</p>
+                <% } else { %>
+                    <p><%= matches[i].score1 %> - <%= matches[i].score2 %> (playing..)</p>
+                <% }%>
+
+            <% } else { %>
+                <p>Starting at <%= matches[i].time %>  </p>
+            <% } %>
+
+            <a href="/admin/edit-match/<%= matches[i].id %>">
+                <button class="edit-match-btn">
+                    <span>
+                        Edit Match
+                    </span>
+                </button>
+            </a>
+        </article>
+
+        <hr class="css-disabled" >
+
+	<% } %>
+
+
+<% } else{ %>
+	<p>There are no matches</p>
+<% } %>
+
+</section>
+
+<%- include('../includes/end') %>
+
