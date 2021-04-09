@@ -40,26 +40,14 @@ function newNotification(title, body) {
     const notification = new Notification(title, options);
 }
 
-// let socket;
-
-// if (process.env.IS_DEVELOPMENT) {
-//     socket = io(`${process.env.DEVELOPMENT_URL}:${WSS_PORT}`);
-// } else {
-//     socket = io(`${process.env.PRODUCTION_URL}:${WSS_PORT}`);
-// }
-
-// console.log(socket);
-
-// console.log(process.env.IS_DEVELOPMENT);
-
-const socket = io("http://gamechanger-rtw.herokuapp.com:8001");
+const socket = io("http://localhost:8001");
 
 function emitMsg() {
     socket.emit("test-msg", true);
     console.log("click");
 }
 
-socket.on("test-msg", (emitted) => {
+socket.on("test-msg", () => {
     alert("HOOO");
 });
 
