@@ -2,6 +2,8 @@
 
 Jochem (work in progress)
 
+WSS can be found [here](https://github.com/jochemvogel/gamechanger-wss)
+
 ## Table of Contents
 
 -   [Synopsis](#synopsis)
