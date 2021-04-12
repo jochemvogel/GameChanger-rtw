@@ -69,8 +69,6 @@ API’s die ik eventueel kan gebruiken zijn:
 <details>
 <summary>Schets/ontwerp</summary>
 
-Komt later..
-
 </details>
 
 <details>
@@ -112,7 +110,15 @@ Voor de API heb ik nog niet echt een heel goed beeld wat er nodig is. Ik zou kun
 <details>
 <summary>Schets/ontwerp</summary>
 
-Komt later..
+Dit zijn een aantal ideeën van hoe het eruit kan komen te zien. Ik ben er nog niet uit welke van deze het wordt. Binnenkort verplaats ik een hoop van m'n README naar de Wiki. Het wordt nu wel een beetje veel (en we zijn nog maar net begonnen)
+
+Ontwerp weer:
+
+![Ontwerp weer](https://i.ibb.co/Byt5dzQ/Screenshot-2021-04-12-at-17-31-59.png)
+
+Ontwerp liveblog (non admin):
+
+![Ontwerp liveblog non admin](https://i.ibb.co/n8473D2/Screenshot-2021-04-12-at-18-29-29.png)
 
 </details>
 
