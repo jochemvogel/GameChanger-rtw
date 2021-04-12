@@ -1,35 +1,24 @@
-function notifyMe() {
-    // If the browser supports notifications
+function enableNotifications() {
+    // Let's check if the browser supports notifications
     if (!("Notification" in window)) {
-        alert("This browser does not support notification");
+        alert("This browser does not support desktop notification");
     }
 
-    // If have alredy been granted
+    // Let's check whether notification permissions have already been granted
     else if (Notification.permission === "granted") {
-        newNotification("Game Update!", "Your favorite team scored!");
+        // If it's okay let's create a notification
+        var notification = new Notification("Hi there!");
     }
 
     // Otherwise, we need to ask the user for permission
-    else if (
-        Notification.permission !== "denied" ||
-        Notification.permission === "default"
-    ) {
-        Notification.requestPermission(function (permission) {
+    else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then(function (permission) {
             // If the user accepts, let's create a notification
             if (permission === "granted") {
-                newNotification("Game Update!", "Your favorite team scored!");
+                var notification = new Notification("Hi there!");
             }
         });
     }
-}
-
-/* Socket simulation */
-function enableNotifications() {
-    notifyMe();
-
-    setInterval(() => {
-        notifyMe();
-    }, 60 * 1000);
 }
 
 function newNotification(title, body) {
@@ -40,22 +29,18 @@ function newNotification(title, body) {
     const notification = new Notification(title, options);
 }
 
-const socket = io(`https://gamechanger-wss.herokuapp.com/`);
+// const socket = io(`https://gamechanger-wss.herokuapp.com/`);
+const socket = io(`http://localhost:1234/`);
 
-function emitMsg() {
-    socket.emit("test-msg", true);
-    console.log("Emit msg");
-}
-
-socket.on("test-msg", () => {
-    alert("Socket on 'test-msg'");
+socket.on("match-updated", () => {
+    alert("match-updated");
+    newNotification("tittleeee", "booooddyyy");
 });
 
 function updateGame() {
-    const title = "Game Update!";
-    const body = "Your favorite team scored!";
-
-    // socket.emit('matchUpdate', { title, body })
+    socket.emit("match-updated", true);
+    // newNotification('tittleeee', 'booooddyyy')
+    console.log("hello");
 }
 
 function toggleMenu(e) {
