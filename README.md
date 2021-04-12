@@ -165,15 +165,19 @@ Dit is realistisch en daarom ook haalbaar. Maar wat ik al zei: liever doe ik het
 ### Screenshot
 
 <details>
+<summary>Screenshot app</summary>
+
 ![Screenshot app](https://raw.githubusercontent.com/jochemvogel/bt-eindopdracht/master/docs/screenshots/Screenshot%202021-03-28%20at%2020.01.26.png)
-<summary></summary>
+
 </details>
 
 ### Design
 
 <details>
 <summary>First sketch design</summary>
+
 ![First sketch design](https://i.ibb.co/LpLfNCF/Screenshot-2021-03-23-at-20-24-01.png)
+
 </details>
 
 ## :gear: Installation
