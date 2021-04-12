@@ -40,8 +40,8 @@ function newNotification(title, body) {
     const notification = new Notification(title, options);
 }
 
-const socket = io(`${window.location.hostname}:8001`);
-// const socket = io(`https://gamechanger-wss.herokuapp.com:8001/`);
+// const socket = io(`${window.location.hostname}:8001`);
+const socket = io(`https://gamechanger-wss.herokuapp.com:1234/`);
 
 console.log(socket);
 
