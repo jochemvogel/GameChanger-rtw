@@ -4,8 +4,8 @@
     "description": "server for browser technologies",
     "main": "app.js",
     "scripts": {
-        "start": "node . & node socket/socket.js",
-        "dev": "nodemon . & nodemon socket/socket.js",
+        "start": "node .",
+        "dev": "nodemon .",
         "build": "node"
     },
     "author": "Jochem Vogel",
