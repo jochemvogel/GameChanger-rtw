@@ -11,17 +11,11 @@ In GameChanger you can get an overview of different sport games. Besides that yo
 <table>
 
 <tr>
-
-<td align="center"><a href="#nerd_face-usage">🤓 Course <a></td>
-
-<td align="center"><a href="#dizzy-concepts">💫 Concepts <a></td>
-
-<td align="center"><a href="#eyeglasses-overview"> 👓 Overview <a></td>
-
-<td align="center"><a href="#gear-installation">⚙️ Installation<a></td>
-
-<td align="center"><a href="#open_file_folder-folder-structure">🗂 Folder Structure<a></td>
-
+    <td align="center"><a href="#nerd_face-usage">🤓 Course <a></td>
+    <td align="center"><a href="#dizzy-concepts">💫 Concepts <a></td>
+    <td align="center"><a href="#eyeglasses-overview"> 👓 Overview <a></td>
+    <td align="center"><a href="#gear-installation">⚙️ Installation<a></td>
+    <td align="center"><a href="#open_file_folder-folder-structure">🗂 Folder Structure<a></td>
 </tr>
 
 </table>
@@ -172,6 +166,8 @@ Ontwerp live blog implementatie (Socket)
 Extra note: de stippellijn is de socket verbinding
 
 ![Data Lifecycle](https://i.ibb.co/CQywn4c/data-lifecycle-copy.jpg)
+
+</details>
 
 </details>
 
