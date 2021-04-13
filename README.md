@@ -10,7 +10,7 @@ In GameChanger you can get an overview of different sport games. Besides that yo
 
 <table>
 <tr>
-	<td align="center"><a href="#nerd_face-usage">🤓 Course <a></td>
+	<td align="center"><a href="#nerd_face-course">🤓 Course <a></td>
 	<td align="center"><a href="#dizzy-concepts">💫 Concepts <a></td>
 	<td align="center"><a href="#eyeglasses-overview"> 👓 Overview <a></td>
 	<td align="center"><a href="#gear-installation">⚙️ Installation<a></td>
