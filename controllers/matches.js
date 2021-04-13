@@ -44,14 +44,6 @@ async function getDetails(req, res) {
 
     const weatherData = await getWeatherData();
 
-    console.log(weatherData.weather[0].description);
-
-    /*
-
-    weatherData.main.temp - 273.15
-
-    */
-
     Match.findById(matchId, (match) => {
         function formatDate(dateStr) {
             const dArr = dateStr.split("-");
