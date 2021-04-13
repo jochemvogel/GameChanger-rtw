@@ -81,6 +81,8 @@ Ontwerp live blog implementatie (Socket)
 
 ![Ontwerp liveblog non admin](https://i.ibb.co/n8473D2/Screenshot-2021-04-12-at-18-29-29.png)
 
+</details>
+
 <details>
 <summary>Data Lifecycle</summary>
 
