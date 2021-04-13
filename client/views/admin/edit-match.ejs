@@ -50,7 +50,7 @@
             <input type="checkbox" name="finished" id="finished" aria-label="Is game finished">
         <% } %>
     </div>
-    <input class="btn add-btn" onclick="updateGame()" type="submit" value="Save" />
+    <input class="btn add-btn" onclick="updateGame('<%= match.id %>', '<%= match.team1 %>', '<%= match.team2 %>', '<%= match.score1 %>', '<%= match.score2 %>', '<%= match.finished %>')" type="submit" value="Save" />
 </form>
 
 <form action="/admin/remove-match/<%= match.id %>" method="POST">
