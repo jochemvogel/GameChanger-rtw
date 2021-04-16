@@ -20,7 +20,7 @@ In GameChanger you can get an overview of different sport games. Besides that yo
 
 </table>
 
-## :nerdy_face: Course
+## :nerd_face: Course
 
 _The course **Real-Time Web** is about learning how to build a real-time application. Real-Time Web is part of the half year minor programme about Web Design and Development in Amsterdam. Bachelor Communication and Multimedia Design, Amsterdam University of Applied Science._
 
