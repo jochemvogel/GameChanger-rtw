@@ -26,7 +26,7 @@ _The course **Real-Time Web** is about learning how to build a real-time applica
 
 ## :dizzy: Concepts
 
-Ik heb drie verschillende concepten gemaakt. Uiteindelijk heb ik voor de eerste gekozen. Alleen de eerste wordt verder behandeld in de README. Mocht je meer achtergrond informatie willen over de andere concepten, dan kun je deze in de [Wiki](https://github.com/jochemvogel/gamechanger-rtw/wiki/Concepts)] vinden.
+Ik heb drie verschillende concepten gemaakt. Uiteindelijk heb ik voor de eerste gekozen. Alleen de eerste wordt verder behandeld in de README. Mocht je meer achtergrond informatie willen over de andere concepten, dan kun je deze in de [Wiki](https://github.com/jochemvogel/gamechanger-rtw/wiki/Concepts) vinden.
 
 Op chronologische volgorde waren/zijn de concepten:
 
