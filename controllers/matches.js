@@ -3,6 +3,8 @@ const Match = require("../models/match");
 
 const { getWeatherData } = require("../models/weather");
 
+const isDevelopment = process.env.IS_DEVELOPMENT;
+
 function getMatches(req, res) {
     const dataFilePath = "./data/data.json";
 
@@ -10,6 +12,7 @@ function getMatches(req, res) {
         const matches = "No matches";
         res.render("matches/index", {
             matches,
+            isDevelopment,
         });
         return;
     }
@@ -24,12 +27,14 @@ function getMatches(req, res) {
         const matches = "No matches";
         res.render("matches/index", {
             matches,
+            isDevelopment,
         });
         return;
     }
 
     res.render("matches/index", {
         matches,
+        isDevelopment,
     });
 }
 
@@ -57,7 +62,8 @@ async function getDetails(req, res) {
             formattedDate,
             jsEnabled,
             temp: Math.round(weatherData.main.temp - 273.15),
-            condition: weatherData.weather[0].description
+            condition: weatherData.weather[0].description,
+            isDevelopment,
         });
     });
 }

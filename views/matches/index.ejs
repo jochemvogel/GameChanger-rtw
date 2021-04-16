@@ -1,4 +1,8 @@
-<%- include('../includes/head') %>
+<% if (isDevelopment) { %>
+    <%- include('../includes/head') %>
+<% } else { %>
+    <%- include('../../public/views/head') %>
+<% }  %>
 
 <h2>Matches</h2>
 

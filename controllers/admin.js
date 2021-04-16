@@ -2,6 +2,8 @@ const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 const Match = require("../models/match");
 
+const isDevelopment = process.env.IS_DEVELOPMENT;
+
 function getAdmin(req, res) {
     const dataFilePath = "./data/data.json";
 
@@ -9,9 +11,12 @@ function getAdmin(req, res) {
         const matches = "";
         res.render("admin/index", {
             matches,
+            isDevelopment,
         });
         return;
     }
+
+    console.log(isDevelopment);
 
     let rawData = fs.readFileSync(dataFilePath);
 
@@ -19,12 +24,14 @@ function getAdmin(req, res) {
 
     res.render("admin/index", {
         matches,
+        isDevelopment,
     });
 }
 
 function getAddMatch(req, res) {
     res.render("admin/add-match", {
         id: uuidv4(),
+        isDevelopment,
     });
 }
 
@@ -63,6 +70,7 @@ function getEditMatch(req, res) {
     Match.findById(matchId, (match) => {
         res.render("admin/edit-match", {
             match,
+            isDevelopment,
         });
     });
 }
