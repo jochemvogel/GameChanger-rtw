@@ -11,11 +11,13 @@ In GameChanger you can get an overview of different sport games. Besides that yo
 <table>
 
 <tr>
-    <td align="center"><a href="#nerd_face-usage">🤓 Course <a></td>
-    <td align="center"><a href="#dizzy-concepts">💫 Concepts <a></td>
-    <td align="center"><a href="#eyeglasses-overview"> 👓 Overview <a></td>
-    <td align="center"><a href="#gear-installation">⚙️ Installation<a></td>
-    <td align="center"><a href="#open_file_folder-folder-structure">🗂 Folder Structure<a></td>
+
+<td align="center"><a href="#nerd_face-usage">🤓 Course <a></td>
+<td align="center"><a href="#dizzy-concepts">💫 Concepts <a></td>
+<td align="center"><a href="#eyeglasses-overview"> 👓 Overview <a></td>
+<td align="center"><a href="#gear-installation">⚙️ Installation<a></td>
+<td align="center"><a href="#open_file_folder-folder-structure">🗂 Folder Structure<a></td>
+
 </tr>
 
 </table>
@@ -41,6 +43,28 @@ Op chronologische volgorde waren/zijn de concepten:
 In deze app zijn er twee type clients: non-admin & admin clients. Voor nu kun je via het menu nog gewoon switchen, maar je zou kunnen bedenken dat je uiteindelijk kunt inloggen en met een rollen gaat werken.
 
 Op het moment dat er iets wijzigt bij een wedstrijd, verschijnt er een notificatie. Voor nu geeft het puur aan dat er iets aangepast is, maar dit wil je uiteindelijk dynamisch maken (tijd, score, uitslag etc.)
+
+#### Schets/ontwerp
+
+Dit zijn een aantal ideeën van hoe het eruit kan komen te zien. Ik ben er nog niet uit welke van deze het wordt. Binnenkort verplaats ik een hoop van m'n README naar de Wiki. Het wordt nu wel een beetje veel (en we zijn nog maar net begonnen)
+
+Ontwerp weer implementatie (Weather API):
+
+![Ontwerp weer](https://i.ibb.co/Byt5dzQ/Screenshot-2021-04-12-at-17-31-59.png)
+
+Ontwerp live blog implementatie (Socket)
+
+![Ontwerp liveblog non admin](https://i.ibb.co/n8473D2/Screenshot-2021-04-12-at-18-29-29.png)
+
+<details>
+
+<summary>Data Lifecycle</summary>
+
+Extra note: de stippellijn is de socket verbinding
+
+![Data Lifecycle](https://i.ibb.co/CQywn4c/data-lifecycle-copy.jpg)
+
+</details>
 
 <details>
 
@@ -82,44 +106,70 @@ In de Free tier kun je 1.000.000 request/maand & 60 requests/minuut doen. Dit is
 {
     "coord": {
         "lon": 4.8897,
+
         "lat": 52.374
     },
+
     "weather": [
         {
             "id": 801,
+
             "main": "Clouds",
+
             "description": "few clouds",
+
             "icon": "02d"
         }
     ],
+
     "base": "stations",
+
     "main": {
         "temp": 282.21,
+
         "feels_like": 279.71,
+
         "temp_min": 282.04,
+
         "temp_max": 282.59,
+
         "pressure": 1032,
+
         "humidity": 49
     },
+
     "visibility": 10000,
+
     "wind": {
         "speed": 4.63,
+
         "deg": 300
     },
+
     "clouds": {
         "all": 20
     },
+
     "dt": 1618323113,
+
     "sys": {
         "type": 1,
+
         "id": 1524,
+
         "country": "NL",
+
         "sunrise": 1618289221,
+
         "sunset": 1618338866
     },
+
     "timezone": 7200,
+
     "id": 2759794,
+
     "name": "Amsterdam",
+
     "cod": 200
 }
 ```
@@ -131,43 +181,20 @@ In de Free tier kun je 1.000.000 request/maand & 60 requests/minuut doen. Dit is
 Eenheden:
 
 -   `main.temp`: Kelvin (De formule om terug naar celsius te gaan is _℃ = K - 273.15_)
+
 -   `wind.speed`: meter/seconde
+
 -   `clouds.all`: Percentage (hoe is de bewolking)
 
 Overige toelichting:
 
 -   Er worden icons meegegeven. Deze kunnen weergegeven worden in de app.
+
 -   Het gaat hier om het endpoint **Current**. Het is het weer op dit moment op een specifieke plek.
 
 Om de API nog beter in beeld te brengen, is er een model gemaakt van de relevante onderdelen in het endpoint:
 
 ![enter image description here](https://i.ibb.co/sPrFx5t/data-model.jpg)
-
-</details>
-
-<details>
-
-<summary>Schets/ontwerp</summary>
-
-Dit zijn een aantal ideeën van hoe het eruit kan komen te zien. Ik ben er nog niet uit welke van deze het wordt. Binnenkort verplaats ik een hoop van m'n README naar de Wiki. Het wordt nu wel een beetje veel (en we zijn nog maar net begonnen)
-
-Ontwerp weer implementatie (Weather API):
-
-![Ontwerp weer](https://i.ibb.co/Byt5dzQ/Screenshot-2021-04-12-at-17-31-59.png)
-
-Ontwerp live blog implementatie (Socket)
-
-![Ontwerp liveblog non admin](https://i.ibb.co/n8473D2/Screenshot-2021-04-12-at-18-29-29.png)
-
-<details>
-
-<summary>Data Lifecycle</summary>
-
-Extra note: de stippellijn is de socket verbinding
-
-![Data Lifecycle](https://i.ibb.co/CQywn4c/data-lifecycle-copy.jpg)
-
-</details>
 
 </details>
 
@@ -213,34 +240,86 @@ This app is made with vanilla JS (frontend) and NodeJS (backend).
 
 #### 1). Clone the repository
 
-`git clone https://github.com/jochemvogel/bt-eindopdracht.git`
+`git clone https://github.com/jochemvogel/gamechanger-rtw.git `
 
 #### 2). Install dependencies
 
 `npm install`
 
-#### 3). Start server
+#### 3). Get an API key
 
-`npm run dev`
+Go to [Openweathermap.org](gamechanger-rtw), click on **Sign In** in the top right corner and click on **Create an Account**. When you've done this, go to your account on the website, select `My API Keys` and create one.
+
+This project uses the **Current Weather Data** endpoint. The free tier has a limit of 60 calls/minute and 1.000.000 calls/month.
+
+Copy the `.env.example` file, change the name to `.env` and update the value of the `API_KEY=` to the API key you got from RapidApi. Then set `IS_DEVELOPMENT` to `true` in your own `.env`.
+
+#### 4). Start development environment
+
+`npm run dev` (Will build & watch automatically)
+
+#### 5). Watch files (manual)
+
+`npm run watch`
+
+#### 6). Build files (manual)
+
+`npm run build`
 
 ## :open_file_folder: Folder Structure
 
-### `/docs`
+<details>
 
-All the documents are located here. They're also mentioned in the README, so you don't have to look their either.
+<summary>Screenshot folder structure</summary>
 
-### `/client`
+![Folder structure](https://i.ibb.co/bBypCKG/Screenshot-2021-04-16-at-14-32-31.png)
 
-The client side part of the application
+</details>
 
-#### `/client/public`
+### models
 
-You can find al the public resources here. In this project are no building scripts, so all the styling and scripting is (directly) placed in the `/public` folder.
+All the data is getting fetch (and processed) in this folder. The (match) data from `data.json` is also retrieved from here.
 
-#### `/client/views`
+### views
 
-Here you can find all the views of the application. It's build with EJS for dynamic purposes, but it's basically HTML with some variables.
+All the (EJS) views can be found here. There is a `/pages` and a `/partials` folder located.
 
-### The rest
+### controllers
 
-Little bit a mess right now, so I'll add some text here when I refactored the folder structure
+The render controller is located in this folder. Controllers are the 'middleman' between the views & models and reacts to user interaction.
+
+### routes
+
+All the routes (with it's render functions) are located in `routes/routes.js`.
+
+### scripts
+
+Here are all the build scripts located.
+
+### data
+
+All the data is stored in a file right now. Will add a (Firebase) database later on
+
+### src
+
+All the js, css and assets are located in this folder. When you build, those files will be optimized and placed in the `/public` folder. All the files in thet `src/assets/` folder will be place in the 'root' of `/public`. The rest will be placed in their dedicated folder.
+
+### public
+
+This folder is not visible (on default). After you build, the `/public` folder will be created.
+
+#### Build scripts
+
+I use some (gulp) build scripts to make the folder structure more clear.
+
+##### [`scripts/build-js.js`](https://github.com/jochemvogel/gamechanger-rtw/blob/master/scripts/build-js.js)
+
+All the (client side) scripts are getting concatenated and minified (`terser`) to one file (`bundle.min.js`) and placed in the `public/js` directory.
+
+##### [`scripts/build-css.js`](https://github.com/jochemvogel/gamechanger-rtw/blob/master/scripts/build-css.js)
+
+First all the css is getting concatenated, then it's getting formatted (with cleanCSS) and eventually it's getting post processed (with autoprefixer). The bundled file will be placed in the `public/css` directory.
+
+##### [`scripts/build-assets.js`](https://github.com/jochemvogel/gamechanger-rtw/blob/master/scripts/build-assets.js)
+
+It copies all the assets and place it in the `/public` folder. There is also another script named `build-img.js`. It's basically doing the same, but it has a different output directory.
