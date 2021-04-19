@@ -49,7 +49,7 @@ async function getDetails(req, res) {
 
     const weatherData = await getWeatherData();
 
-    const icon = "50d"
+    const icon = weatherData.weather[0].icon
     const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`
 
     Match.findById(matchId, (match) => {
