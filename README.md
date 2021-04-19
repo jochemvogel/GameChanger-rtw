@@ -17,6 +17,7 @@ In GameChanger you can get an overview of different sport games. Besides that yo
 <td align="center"><a href="#eyeglasses-overview"> 👓 Overview <a></td>
 <td align="center"><a href="#gear-installation">⚙️ Installation<a></td>
 <td align="center"><a href="#open_file_folder-folder-structure">🗂 Folder Structure<a></td>
+<td align="center"><a href="#anger-others">💢 Others<a></td>
 
 </tr>
 
@@ -28,39 +29,45 @@ _The course **Real-Time Web** is about learning how to build a real-time applica
 
 ## :dizzy: Concepts
 
-Ik heb drie verschillende concepten gemaakt. Uiteindelijk heb ik voor de eerste gekozen. Alleen de eerste wordt verder behandeld in de README. Mocht je meer achtergrond informatie willen over de andere concepten, dan kun je deze in de [Wiki](https://github.com/jochemvogel/gamechanger-rtw/wiki/Concepts) vinden.
+I've made three different concepts. Ultimately I choose for the first one. Only that one will be described in the README. If you want some more background about the others, you can find them in the [Wiki](https://github.com/jochemvogel/gamechanger-rtw/wiki/Concepts).
 
-Op chronologische volgorde waren/zijn de concepten:
+The concepts were:
 
-1.  Verder bouwen op de **GameChanger** app van Browser Tech. In deze app kun je (sport)wedstrijden aanmaken en scores updaten.
+1. Build further on the **GameChanger** app that I made in Browser Tech. In this app you can create (sport)matches and update those scores.
 
-2.  **Skribbl clone.** Skribbl is een app waarin je met vrienden kunt tekenen. Een van de spelers krijgt een woord en moet dit na tekenen. De rest krijgt alleen het teken veld te zien en de hoeveelheid letters. Hoe eerder je het raad, hoe meer punten je krijgt.
+2. ** Skribbl clone. ** Skribbl is an app in which you can draw with friends. One of the players receives a word and has to draw it. The rest will only see the character field and the amount of letters. The sooner you guess, the more points you get.
 
-3.  **Sociaal medium.** Het liefst blijf ik van dit concept af, aangezien ik het nogal basic vindt. Mocht de rest niet lukken, dan kies ik voor deze
+3. **Social media.** I prefer to stay away from this concept, as I find it too basic. If the rest does not work, then I'll choose this one
 
-### Definitieve concept
+### Final concept
 
 In deze app zijn er twee type clients: non-admin & admin clients. Voor nu kun je via het menu nog gewoon switchen, maar je zou kunnen bedenken dat je uiteindelijk kunt inloggen en met een rollen gaat werken.
 
 Op het moment dat er iets wijzigt bij een wedstrijd, verschijnt er een notificatie. Voor nu geeft het puur aan dat er iets aangepast is, maar dit wil je uiteindelijk dynamisch maken (tijd, score, uitslag etc.)
 
-#### Schets/ontwerp
+In this app there are two types of clients: non-admin & admin clients. For now you can still switch via the menu, but eventually I could add a log in and start working with a roles.
 
-Dit zijn een aantal ideeën van hoe het eruit kan komen te zien. Ik ben er nog niet uit welke van deze het wordt. Binnenkort verplaats ik een hoop van m'n README naar de Wiki. Het wordt nu wel een beetje veel (en we zijn nog maar net begonnen)
+The moment something changes in a match, a notification will appear. For now it purely indicates that something has been adjusted, but you ultimately want to make this dynamic (time, score, result, etc.)
 
-Ontwerp weer implementatie (Weather API):
+#### Sketch
 
-![Ontwerp weer](https://i.ibb.co/Byt5dzQ/Screenshot-2021-04-12-at-17-31-59.png)
+These are some ideas of what it might look like. I'm not sure yet which of these it will be.
 
-Ontwerp live blog implementatie (Socket)
+Design weather implementation (Weather API):
 
-![Ontwerp liveblog non admin](https://i.ibb.co/n8473D2/Screenshot-2021-04-12-at-18-29-29.png)
+![Design weather](https://i.ibb.co/Byt5dzQ/Screenshot-2021-04-12-at-17-31-59.png)
+
+Design live blog implementation (Socket)
+
+![Design live blog](https://i.ibb.co/n8473D2/Screenshot-2021-04-12-at-18-29-29.png)
+
+Didn't choose this one. Choose a chat instead.
 
 <details>
 
 <summary>Data Lifecycle</summary>
 
-Extra note: de stippellijn is de socket verbinding
+Extra note: the dotted line is the socket connection
 
 ![Data Lifecycle](https://i.ibb.co/CQywn4c/data-lifecycle-copy.jpg)
 
@@ -68,15 +75,15 @@ Extra note: de stippellijn is de socket verbinding
 
 <details>
 
-<summary>Socket functionaliteit</summary>
+<summary>Socket functionality</summary>
 
-Hier zijn verschillende mogelijkheden voor. Een hiervan is de Notification API. Deze heb ik al werkend, dus enkel de socket functionaliteit hoef ik er aan toe te voegen. Voor nu is het nog statisch (wedstrijd x has changed), maar dit kan uiteindelijk ook dynamisch. Ik hoop dat te kunnen realiseren in dit tijdsbestek.
+There are several options for this. One of these is the Notification API. I already have this working, so I only need to add the socket functionality. For now it is still static (match x has changed), but eventually this can also be dynamic. I hope that I'm be able to achieve that in the time frame.
 
-Liveblog. Op elke detailpagina wil ik een liveblog hebben. Om te beginnen wil ik een globale liveblog hebben (vergelijkbaar met een chat), maar uiteindelijk wil ik dit per wedstrijd doen. Hoe of wat weet ik nog niet precies, maar ik denk een combinatie van een database & rooms op socket.io.
+Live blog. I want to have a live blog on every detail page. To start with, I want to have a global live blog (similar to a chat), but ultimately I want to do this per match. I don't know exactly how or what, but I think a combination of a database & rooms on socket.io.
 
-Een volgende stap zouden reacties kunnen zijn. Een live feed van reacties op elke wedstrijd. Vergelijkbaar met de liveblog, maar dan reacties van gebruikers.
+The next step could be reactions. A live feed with responses to every match. Similar to the live blog, but then reactions from users.
 
-Dit is voor nu wel voldoende, maar ik kan nog wel even door gaan met wat functionaliteit. Mocht ik zo ver zijn, dan breid ik dit nog uit. Voor nu denk ik dat ik hier wel even zoet mee ben.
+This is sufficient for now, but I can continue with some functionality. If I get that far, I will expand this. For now I think I am happy with this.
 
 </details>
 
@@ -84,19 +91,15 @@ Dit is voor nu wel voldoende, maar ik kan nog wel even door gaan met wat functio
 
 <summary>API</summary>
 
-Ik zou het leuk vinden om met een weer API te gaan werken, zodat je kunt zien wat voor weer het wordt tijdens jouw wedstrijd (of als je de wedstrijd wilt bezoeken). In eerste instantie wil ik gewoon met een statische locatie Amsterdam werken, maar de tijd wil ik wel dynamisch maken. Dus dat je daadwerkelijk kunt zien wat voor weer het is om 20.30. Hier zou je uiteindelijk nog meer dingen aan toevoegen, zoals of er neerslag is, weer gedurende de hele wedstrijd etc.
+The API that I'm going to use is the [Open Weather Map API](https://openweathermap.org/current).
 
-De eerste stap is om de API werkend te krijgen. Het is nog niet zo spannend, maar het (near) real-time tonen van het weer in Amsterdam. Als mij dit is gelukt, wil ik graag verder kijken en het weer tonen (en dus ophalen) op basis van de tijd van de wedstrijd. Er is een ander endpoint waarmee dit kan, maar daar moet ik mij nog even in verdiepen.
+Unfortunately, it is only possible to retrieve the current weather (for free). If you want to look ahead, you unfortunately have to pay. However, it is possible to use the ** One Call API ** with the free version. I still have to delve into this, so I will expand this piece.
 
-De API die ik hiervoor gebruik/ga gebruiken is de [Open Weather Map API](https://openweathermap.org/current)
-
-Het is helaas alleen mogelijk om (gratis) het weer van dit moment op te halen. Als je vooruit wilt kijken, moet je helaas betalen. Wél is het mogelijk om met de gratis variant de **One Call API** te gebruiken. Hier moet ik mij nog even in verdiepen, dus dit stukje breid ik nog uit.
-
-In de Free tier kun je 1.000.000 request/maand & 60 requests/minuut doen. Dit is meer dan voldoende. Als je meer wilt weten over de rate limit van de API, dan kun je deze [hier](https://openweathermap.org/price) vinden.
+In the Free tier you can make 1,000,000 requests / month & 60 requests / minute. This is more than enough. If you want to know more about the rate limit of the API, you can find it [here](https://openweathermap.org/price).
 
 <details>
 
-<summary>Voorbeeld Response</summary>
+<summary>Example Response</summary>
 
 **Input**: Amsterdam
 
@@ -150,37 +153,15 @@ In de Free tier kun je 1.000.000 request/maand & 60 requests/minuut doen. Dit is
 
 </details>
 
-**Extra toelichting:**
+**Additional explanation:**
 
-Eenheden:
+Unites:
 
--   `main.temp`: Kelvin (De formule om terug naar celsius te gaan is _℃ = K - 273.15_)
+-   `main.temp`: Kelvin (The formula to Celsius is _℃ = K - 273.15_)
+-   `wind.speed`: meter/second
+-   `clouds.all`: Percentage
 
--   `wind.speed`: meter/seconde
-
--   `clouds.all`: Percentage (hoe is de bewolking)
-
-Overige toelichting:
-
--   Er worden icons meegegeven. Deze kunnen weergegeven worden in de app.
-
--   Het gaat hier om het endpoint **Current**. Het is het weer op dit moment op een specifieke plek.
-
-Om de API nog beter in beeld te brengen, is er een model gemaakt van de relevante onderdelen in het endpoint:
-
-![enter image description here](https://i.ibb.co/sPrFx5t/data-model.jpg)
-
-</details>
-
-<details>
-
-<summary>Wanneer niet haalbaar</summary>
-
-Het is een server side applicatie. Het zal wel moeten kunnen, maar ik weet niet in hoeverre mij het lukt om dit server side werkend te krijgen. Neem bijvoorbeeld de live blog. Dit is vergelijkbaar met een chat. Deze heb ik al wel eens eerder gemaakt, maar dit was client side en werd niet opgeslagen. Hier ligt dus nog een uitdaging voor mij.
-
-Als de API te veel tijd gaat kosten. Ik heb (omdat het momenteel niet mijn prioriteit heeft) nog niet naar de API’s gekeken en weet dus niet wat ik kan verwachten. Ik hoop dat ik een tijd kan meegeven als query (zo niet, dan is een datum ook prima).
-
-Het gaat mij dus met name om het server side gedeelte. De socket heb ik werkend en dat zal het probleem dus niet zijn. Het gaat erom dat als een admin iets typt (in het liveblog gedeelte), dat dit dan automatisch gerenderd/weergegeven wordt in de live blog van alle andere clients. Ik weet dat ik dit client side met appendChild etc. kan doen, maar ik weet niet hoe dit server side gedaan moet worden. Ik kan wel client side JavaScript gebruiken, maar omdat ik gebruik maak van EJS, kan ik geen querySelector doen. Wellicht is het dan nog een optie om een live-blog.html te hebben. Staat niet netjes, maar als dit ervoor zorgt dat ik verder kan, dan neem ik dat voor dit project voor lief.
+![API model](https://i.ibb.co/sPrFx5t/data-model.jpg)
 
 </details>
 
@@ -284,6 +265,10 @@ This folder is not visible (on default). After you build, the `/public` folder w
 
 #### Build scripts
 
+# :anger: Others
+
+## Build Scripts
+
 I use some (gulp) build scripts to make the folder structure more clear.
 
 ##### [`scripts/build-js.js`](https://github.com/jochemvogel/gamechanger-rtw/blob/master/scripts/build-js.js)
@@ -297,3 +282,7 @@ First all the css is getting concatenated, then it's getting formatted (with cle
 ##### [`scripts/build-assets.js`](https://github.com/jochemvogel/gamechanger-rtw/blob/master/scripts/build-assets.js)
 
 It copies all the assets and place it in the `/public` folder. There is also another script named `build-img.js`. It's basically doing the same, but it has a different output directory.
+
+## Sources
+
+...
