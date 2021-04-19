@@ -41,10 +41,20 @@ function getMatches(req, res) {
 async function getDetails(req, res) {
     const matchId = req.params.id;
 
-    const weatherData = await getWeatherData();
+    let weatherIconUrl;
+    let weatherTemp;
 
-    const icon = weatherData.weather[0].icon
-    const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`
+    // Reduce API requests
+    if (isDevelopment) {
+        weatherIconUrl = "http://openweathermap.org/img/wn/50d@2x.png"
+        weatherTemp = 10;
+    } else {
+        const weatherData = await getWeatherData();
+
+        const icon = weatherData.weather[0].icon;
+        weatherIconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+        weatherTemp = Math.round(weatherData.main.temp - 273.15)
+    }
 
     Match.findById(matchId, (match) => {
         function formatDate(dateStr) {
@@ -57,8 +67,8 @@ async function getDetails(req, res) {
         res.render("matches/details", {
             match,
             formattedDate,
-            weatherTemp: Math.round(weatherData.main.temp - 273.15),
-            iconUrl,
+            weatherTemp,
+            weatherIconUrl,
             isDevelopment,
         });
     });
