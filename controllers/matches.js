@@ -49,6 +49,9 @@ async function getDetails(req, res) {
 
     const weatherData = await getWeatherData();
 
+    const icon = "50d"
+    const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`
+
     Match.findById(matchId, (match) => {
         function formatDate(dateStr) {
             const dArr = dateStr.split("-");
@@ -61,8 +64,8 @@ async function getDetails(req, res) {
             match,
             formattedDate,
             jsEnabled,
-            temp: Math.round(weatherData.main.temp - 273.15),
-            condition: weatherData.weather[0].description,
+            weatherTemp: Math.round(weatherData.main.temp - 273.15),
+            iconUrl,
             isDevelopment,
         });
     });

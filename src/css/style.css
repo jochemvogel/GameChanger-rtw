@@ -2,48 +2,74 @@
 
 /* bangers-regular - latin */
 @font-face {
-    font-family: 'Bangers';
+    font-family: "Bangers";
     font-style: normal;
     font-weight: 400;
-    src: url('/fonts/bangers-v13-latin/bangers-v13-latin-regular.eot'); /* IE9 Compat Modes */
-    src: local(''),
-         url('/fonts/bangers-v13-latin/bangers-v13-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('/fonts/bangers-v13-latin/bangers-v13-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-         url('/fonts/bangers-v13-latin/bangers-v13-latin-regular.woff') format('woff'), /* Modern Browsers */
-         url('/fonts/bangers-v13-latin/bangers-v13-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('/fonts/bangers-v13-latin/bangers-v13-latin-regular.svg#Bangers') format('svg'); /* Legacy iOS */
+    src: url("/fonts/bangers-v13-latin/bangers-v13-latin-regular.eot"); /* IE9 Compat Modes */
+    src: local(""),
+        url("/fonts/bangers-v13-latin/bangers-v13-latin-regular.eot?#iefix")
+            format("embedded-opentype"),
+        /* IE6-IE8 */
+            url("/fonts/bangers-v13-latin/bangers-v13-latin-regular.woff2")
+            format("woff2"),
+        /* Super Modern Browsers */
+            url("/fonts/bangers-v13-latin/bangers-v13-latin-regular.woff")
+            format("woff"),
+        /* Modern Browsers */
+            url("/fonts/bangers-v13-latin/bangers-v13-latin-regular.ttf")
+            format("truetype"),
+        /* Safari, Android, iOS */
+            url("/fonts/bangers-v13-latin/bangers-v13-latin-regular.svg#Bangers")
+            format("svg"); /* Legacy iOS */
 }
 
 /* lexend-regular - latin */
 @font-face {
-    font-family: 'Lexend';
+    font-family: "Lexend";
     font-style: normal;
     font-weight: 400;
-    src: url('/fonts/lexend-v2-latin/lexend-v2-latin-regular.eot'); /* IE9 Compat Modes */
-    src: local(''),
-         url('/fonts/lexend-v2-latin/lexend-v2-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('/fonts/lexend-v2-latin/lexend-v2-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-         url('/fonts/lexend-v2-latin/lexend-v2-latin-regular.woff') format('woff'), /* Modern Browsers */
-         url('/fonts/lexend-v2-latin/lexend-v2-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('/fonts/lexend-v2-latin/lexend-v2-latin-regular.svg#Lexend') format('svg'); /* Legacy iOS */
+    src: url("/fonts/lexend-v2-latin/lexend-v2-latin-regular.eot"); /* IE9 Compat Modes */
+    src: local(""),
+        url("/fonts/lexend-v2-latin/lexend-v2-latin-regular.eot?#iefix")
+            format("embedded-opentype"),
+        /* IE6-IE8 */
+            url("/fonts/lexend-v2-latin/lexend-v2-latin-regular.woff2")
+            format("woff2"),
+        /* Super Modern Browsers */
+            url("/fonts/lexend-v2-latin/lexend-v2-latin-regular.woff")
+            format("woff"),
+        /* Modern Browsers */
+            url("/fonts/lexend-v2-latin/lexend-v2-latin-regular.ttf")
+            format("truetype"),
+        /* Safari, Android, iOS */
+            url("/fonts/lexend-v2-latin/lexend-v2-latin-regular.svg#Lexend")
+            format("svg"); /* Legacy iOS */
 }
 
-  /* lexend-700 - latin */
+/* lexend-700 - latin */
 @font-face {
-    font-family: 'Lexend';
+    font-family: "Lexend";
     font-style: normal;
     font-weight: 700;
-    src: url('/fonts/lexend-v2-latin/lexend-v2-latin-700.eot'); /* IE9 Compat Modes */
-    src: local(''),
-         url('/fonts/lexend-v2-latin/lexend-v2-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('/fonts/lexend-v2-latin/lexend-v2-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
-         url('/fonts/lexend-v2-latin/lexend-v2-latin-700.woff') format('woff'), /* Modern Browsers */
-         url('/fonts/lexend-v2-latin/lexend-v2-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('/fonts/lexend-v2-latin/lexend-v2-latin-700.svg#Lexend') format('svg'); /* Legacy iOS */
+    src: url("/fonts/lexend-v2-latin/lexend-v2-latin-700.eot"); /* IE9 Compat Modes */
+    src: local(""),
+        url("/fonts/lexend-v2-latin/lexend-v2-latin-700.eot?#iefix")
+            format("embedded-opentype"),
+        /* IE6-IE8 */ url("/fonts/lexend-v2-latin/lexend-v2-latin-700.woff2")
+            format("woff2"),
+        /* Super Modern Browsers */
+            url("/fonts/lexend-v2-latin/lexend-v2-latin-700.woff")
+            format("woff"),
+        /* Modern Browsers */
+            url("/fonts/lexend-v2-latin/lexend-v2-latin-700.ttf")
+            format("truetype"),
+        /* Safari, Android, iOS */
+            url("/fonts/lexend-v2-latin/lexend-v2-latin-700.svg#Lexend")
+            format("svg"); /* Legacy iOS */
 }
 
 body {
-	text-align: center;
+    text-align: center;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -51,24 +77,24 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: 'Lexend', sans-serif;
+    font-family: "Lexend", sans-serif;
 }
 
 h1 {
-    font-family: 'Bangers', cursive;
+    font-family: "Bangers", cursive;
     font-size: 3em;
     letter-spacing: 2px;
 }
 
 section {
-	margin-top: 5vh;
+    margin-top: 5vh;
     margin-bottom: 5vh;
 }
 
 .match-card {
-	padding: 1em;
-	box-shadow: rgba(0, 0, 0, 0.5) 0 1px 5px;
-	margin: 1em;
+    padding: 1em;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 1px 5px;
+    margin: 1em;
     background-color: #fefefe;
     display: flex;
     flex-direction: column;
@@ -120,9 +146,8 @@ section {
     font-weight: 700;
 }
 
-
 article a button::after {
-    content:url('/img/arrow-right.svg');
+    content: url("/img/arrow-right.svg");
     transform: translateY(10%);
 }
 
@@ -142,12 +167,12 @@ header > h1 {
 }
 
 main {
-  background-color: #fafafa;
-  width: 95%;
-  min-height: 100vh;
-  margin-top: 1em;
-  border-radius: 2em;
-  max-width: 900px;
+    background-color: #fafafa;
+    width: 95%;
+    min-height: 100vh;
+    margin-top: 1em;
+    border-radius: 2em;
+    max-width: 900px;
 }
 
 /* === Details page === */
@@ -254,13 +279,13 @@ hr {
 }
 
 .nav-btn::after {
-    content:url('/img/menu.svg');
+    content: url("/img/menu.svg");
     width: 30px;
     height: 30px;
 }
 
 .opened .nav-btn::after {
-    content:url('/img/cancel.svg');
+    content: url("/img/cancel.svg");
 }
 
 @media screen and (min-width: 500px) {
@@ -329,7 +354,8 @@ input[type="checkbox"] {
 }
 
 /* For all the inputs except checkboxes, numbers and submit */
-form input:not(input[type="checkbox"]):not(input[type="number"]):not(input[type="submit"]) {
+form
+    input:not(input[type="checkbox"]):not(input[type="number"]):not(input[type="submit"]) {
     font-size: 1em;
     margin: 0.5em 0;
     width: 100%;
@@ -346,7 +372,7 @@ textarea {
     box-shadow: inset 1px 3px 2px rgba(0, 0, 0, 0.25);
     vertical-align: top;
     border-radius: 0.2em;
-    font-family: 'Lexend', sans-serif;
+    font-family: "Lexend", sans-serif;
 }
 
 form input[type="number"] {
@@ -359,7 +385,6 @@ form input[type="number"] {
     border-radius: 0.2em;
     text-align: center;
 }
-
 
 .btn {
     border: none;
@@ -374,7 +399,7 @@ form input[type="number"] {
     align-self: center;
     width: 90%;
     max-width: 400px;
-    font-family: 'Lexend', sans-serif;
+    font-family: "Lexend", sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -409,4 +434,53 @@ form input[type="number"] {
     .comment-body {
         padding: 0 12em;
     }
+}
+
+/* Chat */
+
+#chat {
+    margin: 0 auto;
+    margin-top: 1rem;
+    min-height: 30rem;
+    max-height: 40rem;
+    min-width: 20rem;
+    width: 50%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    resize: both;
+    overflow: hidden;
+    border-radius: 1rem;
+    background: #f3f3f3;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+#chat h2 {
+    margin-bottom: 0;
+}
+
+#chat ol {
+    list-style: none;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    height: 20rem;
+    overflow-y: auto;
+}
+
+#chat ol li {
+    color: #1d1d1d;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 1rem;
+    align-self: flex-start;
+    transition: 0.2s;
+    font-size: 0.9rem;
+}
+
+.weather-info > p {
+    margin: 0;
 }

@@ -8,8 +8,6 @@
     </button>
 </a>
 
-<p>Current temperature: <%= temp %> °C (<%= condition %>)</p>
-
 <% if (match) { %>
     <h3><%= match.team1 %> - <%= match.team2 %></h3>
 
@@ -38,39 +36,44 @@
 
 <button onclick="enableNotifications()" class="btn">Enable notifications 🔔</button>
 
+
+<div class="weather-info">
+    <img src="<%= iconUrl %>" alt="Weather Icon">
+    <p>(<%= weatherTemp %> °C)</p>
+</div>
+
 <hr />
 
-<section>
+<section id="chat">
+    <h2>Bulls - Bears</h2>
+    <ol>
+        <li>Test bericht</li>
+        <li>Test bericht</li>
+        <li>Test bericht</li>
+        <li>Test bericht</li>
+        <li>Test bericht</li>
+        <li>Test bericht</li>
+        <li>Test bericht</li>
+        <li>Test bericht</li>
+        <li>Test bericht</li>
+        <li>Test bericht</li>
+        <li>Test bericht</li>
+        <li>Test bericht</li>
+        <li>Test bericht</li>
+        <li>Test bericht</li>
+        <li>Test bericht</li>
+        <li>Test bericht</li>
+        <li>Test bericht</li>
+        <li>Test bericht</li>
+        <li>Test bericht</li>
+        <li>Test bericht</li>
+        <li>Test bericht</li>
+        <li>Test bericht</li>
+    </ol>
+    <p id="typing" hidden>Someone is typing...</p>
 
-    <h3>Comments</h3>
-
-    <article class="comment">
-        <h4>John Doe</h4>
-        <p class="comment-body">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum, laborum nisi maiores animi beatae inventore dolorem quo. Amet veritatis ducimus vero ea magnam officia placeat accusantium nihil adipisci, officiis eaque fugiat delectus, reprehenderit sunt voluptas? Tempora maxime voluptate reprehenderit sunt!</p>
-    </article>
-
-    <article class="comment">
-        <h4>Jochem Vogel</h4>
-        <p class="comment-body">Ik heb ervoor gekozen om de comments niet dynamisch te maken. Het zou mij simpelweg te veel tijd kosten.</p>
-    </article>
-
-    <h4>Add your own comment</h4>
-
-    <form action="/admin/edit-match/<%= match.id %>" method="POST">
-        <div>
-            <input type="hidden" name="id" value="<%= match.id %>" />
-        </div>
-        <div>
-            <label for="name">Name *</label>
-            <input type="text" id="name" name="name" maxlength="10" aria-label="Name of person that comments" required />
-        </div>
-        <div>
-            <label for="message">Message*</label>
-            <textarea name="message" id="message" rows="6" aria-label="Comment message" required></textarea>
-        </div>
-        <button class="btn add-btn" type="submit">Add comment</button>
-    </form>
-
+    <input type="text" name="message" id="message" />
+    <button type="submit">Send</button>
 </section>
 
 <%- include('../includes/end') %>
