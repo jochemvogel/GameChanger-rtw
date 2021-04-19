@@ -45,35 +45,26 @@
 <hr />
 
 <section id="chat">
-    <h2>Bulls - Bears</h2>
-    <ol>
-        <li>Test bericht</li>
-        <li>Test bericht</li>
-        <li>Test bericht</li>
-        <li>Test bericht</li>
-        <li>Test bericht</li>
-        <li>Test bericht</li>
-        <li>Test bericht</li>
-        <li>Test bericht</li>
-        <li>Test bericht</li>
-        <li>Test bericht</li>
-        <li>Test bericht</li>
-        <li>Test bericht</li>
-        <li>Test bericht</li>
-        <li>Test bericht</li>
-        <li>Test bericht</li>
-        <li>Test bericht</li>
-        <li>Test bericht</li>
-        <li>Test bericht</li>
-        <li>Test bericht</li>
-        <li>Test bericht</li>
-        <li>Test bericht</li>
-        <li>Test bericht</li>
-    </ol>
+    <% if (match) { %>
+        <h3><%= match.team1 %> - <%= match.team2 %></h3>
+    <% } %>
+
+    <% if (!match) { %>
+        <h3>Unknown match</h3>
+    <% } %>
+
+    <ol></ol>
     <p id="typing" hidden>Someone is typing...</p>
 
-    <input type="text" name="message" id="message" />
-    <button type="submit">Send</button>
+    <form id="chat-form" action="POST">
+        <input type="text" name="message" id="message" />
+        <button id="send-btn" class="btn" type="submit">Send</button>
+    </form>
 </section>
+
+<script>
+    const chatForm = document.getElementById('chat-form');
+    const messages = document.querySelector('#chat > ol');
+</script>
 
 <%- include('../includes/end') %>

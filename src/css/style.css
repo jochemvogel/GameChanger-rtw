@@ -481,6 +481,10 @@ form input[type="number"] {
     font-size: 0.9rem;
 }
 
+#chat > input[type="text"] {
+    padding: 1em;
+}
+
 .weather-info > p {
     margin: 0;
 }
