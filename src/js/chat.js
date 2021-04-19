@@ -5,23 +5,23 @@ chatForm.addEventListener('submit', (e) => {
 
     if (chatMessage !== '') {
         socket.emit('chat-message', chatMessage)
-        addMessage(chatMessage)
+        addMessage(chatMessage, true)
         e.target[0].value = ''
     }
 })
 
-function addMessage(message) {
+socket.on("chat-message", (message) => {
+    addMessage(message, false)
+})
+
+function addMessage(message, sender) {
     let newMessage = document.createElement('li');
     newMessage.innerText = message;
-    newMessage.setAttribute('class', 'newMessage');
+
+    newMessage.classList.add('msg');
+
+    sender ? newMessage.classList.add('sent-msg') : newMessage.classList.add('received-msg');
+
     messages.appendChild(newMessage);
     newMessage.scrollIntoView(true);
 }
-
-socket.on("chat-message", (message) => {
-    let newMessage = document.createElement('li');
-    newMessage.innerText = message;
-    newMessage.setAttribute('class', 'newMessage');
-    messages.appendChild(newMessage);
-    newMessage.scrollIntoView(true);
-})

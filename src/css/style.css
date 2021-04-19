@@ -471,14 +471,23 @@ form input[type="number"] {
     overflow-y: auto;
 }
 
-#chat ol li {
-    color: #1d1d1d;
+#chat ol .msg {
     padding: 0.5rem 1rem;
-    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 1rem;
-    align-self: flex-start;
     transition: 0.2s;
     font-size: 0.9rem;
+}
+
+#chat ol .received-msg {
+    color: #1d1d1d;
+    background-color: rgba(255, 255, 255, 0.8);
+    align-self: flex-start;
+}
+
+#chat ol .sent-msg {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(24, 83, 243, 0.8);
+    align-self: flex-end;
 }
 
 #chat > input[type="text"] {
