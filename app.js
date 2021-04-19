@@ -17,7 +17,6 @@ app.set("views", "views");
 
 const middlewares = [
     bodyParser.urlencoded({ extended: false }),
-    cookieParser(),
     express.static("public"),
 ];
 
