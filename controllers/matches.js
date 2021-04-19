@@ -41,12 +41,6 @@ function getMatches(req, res) {
 async function getDetails(req, res) {
     const matchId = req.params.id;
 
-    let jsEnabled = false;
-
-    if (req.cookies.js === "true") {
-        jsEnabled = true;
-    }
-
     const weatherData = await getWeatherData();
 
     const icon = weatherData.weather[0].icon
@@ -63,7 +57,6 @@ async function getDetails(req, res) {
         res.render("matches/details", {
             match,
             formattedDate,
-            jsEnabled,
             weatherTemp: Math.round(weatherData.main.temp - 273.15),
             iconUrl,
             isDevelopment,
