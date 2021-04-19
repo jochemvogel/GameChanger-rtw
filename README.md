@@ -61,7 +61,7 @@ Design live blog implementation (Socket)
 
 ![Design live blog](https://i.ibb.co/n8473D2/Screenshot-2021-04-12-at-18-29-29.png)
 
-Didn't choose this one. Choose a chat instead.
+Didn't choose this one. I have chosen a chat instead.
 
 <details>
 
@@ -231,39 +231,35 @@ Copy the `.env.example` file, change the name to `.env` and update the value of 
 
 </details>
 
-### models
+### `/models`
 
 All the data is getting fetch (and processed) in this folder. The (match) data from `data.json` is also retrieved from here.
 
-### views
+### `/views`
 
 All the (EJS) views can be found here. There is a `/pages` and a `/partials` folder located.
 
-### controllers
+### `/controllers`
 
 The render controller is located in this folder. Controllers are the 'middleman' between the views & models and reacts to user interaction.
 
-### routes
+### `/routes`
 
 All the routes (with it's render functions) are located in `routes/routes.js`.
 
-### scripts
+### `/scripts`
 
-Here are all the build scripts located.
+Here are all the build scripts located. More information about those build scripts can be found later in the README.
 
-### data
+### `/data`
 
 All the data is stored in a file right now. Will add a (Firebase) database later on
 
-### src
-
+### `/src`
 All the js, css and assets are located in this folder. When you build, those files will be optimized and placed in the `/public` folder. All the files in thet `src/assets/` folder will be place in the 'root' of `/public`. The rest will be placed in their dedicated folder.
 
-### public
-
+### `/public`
 This folder is not visible (on default). After you build, the `/public` folder will be created.
-
-#### Build scripts
 
 # :anger: Others
 
