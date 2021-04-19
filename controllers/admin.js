@@ -16,8 +16,6 @@ function getAdmin(req, res) {
         return;
     }
 
-    console.log(isDevelopment);
-
     let rawData = fs.readFileSync(dataFilePath);
 
     let matches = JSON.parse(rawData);

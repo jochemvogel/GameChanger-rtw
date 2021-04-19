@@ -489,8 +489,7 @@ form input[type="number"] {
     align-self: flex-end;
 }
 
-#chat > #chat-form > input[type="text"],
-#chat > #chat-form > textarea  {
+#chat > #chat-form > input[type="text"] {
     margin: 0.2em;
     border: none;
     box-shadow: none;
