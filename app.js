@@ -12,15 +12,8 @@ const PORT = process.env.PORT || 4000;
 const adminRoutes = require("./routes/admin");
 const matchesRoutes = require("./routes/matches");
 
-// const clientPath = "./client";
-
 app.set("view engine", "ejs");
 app.set("views", "views");
-
-/* MIDDLEWARE */
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(cookieParser());
-// express.static("public");
 
 const middlewares = [
     bodyParser.urlencoded({ extended: false }),
@@ -33,11 +26,12 @@ app.use(middlewares);
 app.use("/admin", adminRoutes);
 app.use(matchesRoutes);
 
-app.use((req, res, next) => {
-    // One year cache header
-    res.setHeader("Cache-Control", "max-age=" + 365 * 24 * 60 * 60);
-    next();
-});
+// Uncomment when versioned assets (CSS/JS) works
+// app.use((req, res, next) => {
+//     // One year cache header
+//     res.setHeader("Cache-Control", "max-age=" + 365 * 24 * 60 * 60);
+//     next();
+// });
 
 // Static blog route
 app.get("/blog", (req, res) => {
