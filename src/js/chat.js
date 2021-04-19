@@ -3,7 +3,7 @@ chatForm.addEventListener('submit', (e) => {
 
     let userName = e.target[0].value;
     let chatMessage = e.target[1].value;
-    let matchId = getMatchId()
+    const matchId = getMatchId()
 
     if (chatMessage !== '') {
         socket.emit('chat-message', userName, chatMessage, matchId)
