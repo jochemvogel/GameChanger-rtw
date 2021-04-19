@@ -106,70 +106,44 @@ In de Free tier kun je 1.000.000 request/maand & 60 requests/minuut doen. Dit is
 {
     "coord": {
         "lon": 4.8897,
-
         "lat": 52.374
     },
-
     "weather": [
         {
             "id": 801,
-
             "main": "Clouds",
-
             "description": "few clouds",
-
             "icon": "02d"
         }
     ],
-
     "base": "stations",
-
     "main": {
         "temp": 282.21,
-
         "feels_like": 279.71,
-
         "temp_min": 282.04,
-
         "temp_max": 282.59,
-
         "pressure": 1032,
-
         "humidity": 49
     },
-
     "visibility": 10000,
-
     "wind": {
         "speed": 4.63,
-
         "deg": 300
     },
-
     "clouds": {
         "all": 20
     },
-
     "dt": 1618323113,
-
     "sys": {
         "type": 1,
-
         "id": 1524,
-
         "country": "NL",
-
         "sunrise": 1618289221,
-
         "sunset": 1618338866
     },
-
     "timezone": 7200,
-
     "id": 2759794,
-
     "name": "Amsterdam",
-
     "cod": 200
 }
 ```
