@@ -44,6 +44,10 @@ async function getDetails(req, res) {
     let weatherIconUrl;
     let weatherTemp;
 
+    // const storedUserName = localStorage.getItem('userName')
+
+    // console.log(storedUserName);
+
     // Reduce API requests
     if (isDevelopment) {
         weatherIconUrl = "http://openweathermap.org/img/wn/50d@2x.png"

@@ -1,31 +1,37 @@
 chatForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    let chatMessage = e.target[0].value;
+    let userName = e.target[0].value;
+    let chatMessage = e.target[1].value;
     let matchId = getMatchId()
 
     if (chatMessage !== '') {
-        socket.emit('chat-message', chatMessage, matchId)
-        addMessage(chatMessage, true)
-        e.target[0].value = ''
+        socket.emit('chat-message', userName, chatMessage, matchId)
+        addMessage(userName, chatMessage, true)
+        localStorage.setItem('userName', userName)
+        e.target[1].value = ''
     }
 })
 
-socket.on("chat-message", (message, socketMatchId) => {
+socket.on("chat-message", (name, message, socketMatchId) => {
     const currentMatchId = getMatchId();
 
     if (currentMatchId === socketMatchId) {
-        addMessage(message, false)
+        addMessage(name, message, false)
     }
 })
 
-function addMessage(message, sender) {
+function addMessage(name, message, sender) {
     let newMessage = document.createElement('li');
-    newMessage.innerText = message;
-
     newMessage.classList.add('msg');
 
-    sender ? newMessage.classList.add('sent-msg') : newMessage.classList.add('received-msg');
+    if (sender) {
+        newMessage.innerText = message;
+        newMessage.classList.add('sent-msg');
+    } else {
+        newMessage.classList.add('received-msg');
+        newMessage.innerText = `${name}: ${message}`;
+    }
 
     messages.appendChild(newMessage);
     newMessage.scrollIntoView(true);

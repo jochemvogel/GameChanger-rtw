@@ -366,13 +366,14 @@ form
 }
 
 textarea {
-    font-size: 0.8em;
+    font-size: 1em;
     margin: 0.5em 0;
     width: 100%;
     box-shadow: inset 1px 3px 2px rgba(0, 0, 0, 0.25);
     vertical-align: top;
     border-radius: 0.2em;
     font-family: "Lexend", sans-serif;
+    text-align: center;
 }
 
 form input[type="number"] {
@@ -439,14 +440,12 @@ form input[type="number"] {
 /* Chat */
 
 #chat {
-    margin: 0 auto;
-    margin-top: 1rem;
+    margin: 4rem auto;
     min-height: 30rem;
-    max-height: 40rem;
-    min-width: 20rem;
-    width: 50%;
+    max-height: 50rem;
+    min-width: 25rem;
+    width: 60%;
     max-width: 100%;
-    margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
     resize: both;
@@ -490,10 +489,12 @@ form input[type="number"] {
     align-self: flex-end;
 }
 
-#chat > input[type="text"] {
-    padding: 1em;
+#chat > #chat-form > input[type="text"],
+#chat > #chat-form > textarea  {
+    margin: 0.2em;
+    border: none;
+    box-shadow: none;
 }
-
 .weather-info > p {
     margin: 0;
 }
