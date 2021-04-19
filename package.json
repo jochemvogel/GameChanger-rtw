@@ -5,7 +5,7 @@
     "main": "app.js",
     "scripts": {
         "start": "node .",
-        "dev": "nodemon & npm run build & npm run watch",
+        "dev": "nodemon & npm run watch",
         "prebuild": "rimraf ./public",
         "build": "npm-run-all build:*",
         "build:css": "node scripts/build-css.js",
@@ -15,7 +15,8 @@
         "watch": "npm-run-all watch:*",
         "watch:css": "chokidar \"src/css/*.css\" --c \"npm run build:css\"",
         "watch:js": "chokidar \"src/js/*.js\" --c \"npm run build:js\"",
-        "watch:assets": "chokidar 'src/**/*.*' --command 'npm run build:static:assets'"
+        "watch:assets": "chokidar \"src/**/*.*\" --c \"npm run build:assets\"",
+        "watch:img": "chokidar \"src/img/*.*\" --c \"npm run build:img\""
     },
     "author": "Jochem Vogel",
     "license": "ISC",
