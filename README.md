@@ -35,7 +35,7 @@ The concepts were:
 
 1. Build further on the **GameChanger** app that I made in Browser Tech. In this app you can create (sport)matches and update those scores.
 
-2. ** Skribbl clone. ** Skribbl is an app in which you can draw with friends. One of the players receives a word and has to draw it. The rest will only see the character field and the amount of letters. The sooner you guess, the more points you get.
+2. **Skribbl clone.** Skribbl is an app in which you can draw with friends. One of the players receives a word and has to draw it. The rest will only see the character field and the amount of letters. The sooner you guess, the more points you get.
 
 3. **Social media.** I prefer to stay away from this concept, as I find it too basic. If the rest does not work, then I'll choose this one
 
@@ -209,20 +209,29 @@ This project uses the **Current Weather Data** endpoint. The free tier has a lim
 
 Copy the `.env.example` file, change the name to `.env` and update the value of the `API_KEY=` to the API key you got from RapidApi. Then set `IS_DEVELOPMENT` to `true` in your own `.env`.
 
-#### 4). Start development environment
+#### 4). Connect the database
+
+In this project Firebase is used. In order to make it work, you only need the API KEY of this database. You can ask the owner of this repository for the key.
+
+#### 4a). Connect your own database
+
+It's also possible to connect your own (Firebase) database. You need to create a Realtime Database on Firebase by yourself and add the credentials/config in the [`/models/firebase.js`](https://github.com/jochemvogel/gamechanger-rtw/blob/main/models/firebase.js) file.
+
+You won't get the same matches, but you can get this project locally.
+
+#### 5). Start development environment
 
 `npm run dev` (Will build & watch automatically)
 
-#### 5). Watch files (manual)
+#### 6). Watch files (manual)
 
 `npm run watch`
 
-#### 6). Build files (manual)
+#### 7). Build files (manual)
 
 `npm run build`
 
-#### DB API Key
-Insert instructions here
+
 
 ## :open_file_folder: Folder Structure
 
