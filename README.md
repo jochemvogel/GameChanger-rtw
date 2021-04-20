@@ -221,6 +221,9 @@ Copy the `.env.example` file, change the name to `.env` and update the value of 
 
 `npm run build`
 
+#### DB API Key
+Insert instructions here
+
 ## :open_file_folder: Folder Structure
 
 <details>

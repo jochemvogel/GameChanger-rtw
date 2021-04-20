@@ -1,25 +1,11 @@
-const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
+
 const Match = require("../models/match");
 
 const isDevelopment = process.env.IS_DEVELOPMENT;
 
-function getAdmin(req, res) {
-    const dataFilePath = "./data/data.json";
-
-    if (!fs.existsSync(dataFilePath)) {
-        const matches = "";
-        res.render("admin/index", {
-            matches,
-            isDevelopment,
-        });
-        return;
-    }
-
-    let rawData = fs.readFileSync(dataFilePath);
-
-    let matches = JSON.parse(rawData);
-
+async function getAdmin(req, res) {
+    const matches = await Match.getMatchesArray();
     res.render("admin/index", {
         matches,
         isDevelopment,
@@ -34,89 +20,45 @@ function getAddMatch(req, res) {
 }
 
 function postAddMatch(req, res) {
-    const dataFilePath = "./data/data.json";
-
-    /* Check if file does not exists, yet */
-    if (!fs.existsSync(dataFilePath)) {
-        fs.appendFile(dataFilePath, "{}", () => {
-            console.log("Created new file");
-        });
-    }
-
-    /* Execute it after the file is created (process.nextTick & setImmediate don't do the trick) */
-    setTimeout(() => {
-        const dataFile = fs.readFileSync(dataFilePath);
-
-        const data = Array.from(JSON.parse(dataFile));
-
-        data.push(req.body);
-
-        const whatToWrite = JSON.stringify(data, null, 2);
-        fs.writeFile("./data/data.json", whatToWrite, (err) => {
-            if (err) {
-                throw err;
-            }
-            console.log("Succesfully update data.json");
-        });
-
-        res.redirect("/admin");
-    }, 10);
-}
-
-function getEditMatch(req, res) {
-    const matchId = req.params.id;
-    Match.findById(matchId, (match) => {
-        res.render("admin/edit-match", {
-            match,
-            isDevelopment,
-        });
-    });
-}
-
-function postEditMatch(req, res) {
-    const updatedMatch = req.body;
-
-    const matchId = req.params.id;
-
-    const rawData = fs.readFileSync("./data/data.json");
-    const matchArr = Array.from(JSON.parse(rawData));
-
-    const editedMatchIndex = matchArr.findIndex((item) => item.id === matchId);
-
-    matchArr.splice(editedMatchIndex, 1);
-
-    matchArr.unshift(updatedMatch);
-
-    const whatToWrite = JSON.stringify(matchArr);
-
-    fs.writeFile("./data/data.json", whatToWrite, (err) => {
-        if (err) {
-            throw err;
-        }
-        console.log("Succesfully update data.json");
-    });
+    Match.createMatch(req.body);
 
     res.redirect("/admin");
 }
 
-function postRemoveMatch(req, res) {
+async function getEditMatch(req, res) {
     const matchId = req.params.id;
 
-    const rawData = fs.readFileSync("./data/data.json");
-    const matchArr = Array.from(JSON.parse(rawData));
+    const matches = await Match.getMatchesArray();
+    const match = matches.find((m) => m.id === matchId);
 
-    const editedMatchIndex = matchArr.findIndex((item) => item.id === matchId);
-
-    matchArr.splice(editedMatchIndex, 1);
-
-    const whatToWrite = JSON.stringify(matchArr);
-
-    fs.writeFile("./data/data.json", whatToWrite, (err) => {
-        if (err) {
-            throw err;
-        }
-        console.log("Succesfully update data.json");
+    res.render("admin/edit-match", {
+        match,
+        isDevelopment,
     });
+}
+
+async function postEditMatch(req, res) {
+    const updatedMatch = {
+        id: req.body.id,
+        team1: req.body.team1,
+        team2: req.body.team2,
+        date: req.body.date,
+        time: req.body.time,
+        score1: req.body.score1,
+        score2: req.body.score2,
+        finished: req.body.finished
+    };
+    const matchId = req.body.id;
+    const firebaseKey = await Match.getFirebaseKey(matchId);
+    Match.updateMatch(firebaseKey, updatedMatch)
+
+    res.redirect("/admin");
+}
+
+async function postRemoveMatch(req, res) {
+    const matchId = req.body.id;
+    const firebaseKey = await Match.getFirebaseKey(matchId);
+    Match.deleteMatch(firebaseKey)
 
     res.redirect("/admin");
 }

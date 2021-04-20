@@ -1,6 +1,5 @@
 require("dotenv").config();
-
-const path = require("path");
+var firebase = require("firebase/app");
 
 const express = require("express");
 const bodyParser = require("body-parser");

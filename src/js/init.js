@@ -1,3 +1,4 @@
+/* Socket Setup */
 const isDevelopment = document.location.host.includes("localhost");
 const socket = isDevelopment
     ? io(`http://localhost:1234/`)

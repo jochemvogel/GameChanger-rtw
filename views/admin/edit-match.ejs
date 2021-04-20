@@ -44,7 +44,7 @@
     </div>
     <div class="finished">
         <label for="finished">Game Finished?</label>
-        <% if (match.finished) { %>
+        <% if (match.finished === 'on') { %>
             <input type="checkbox" name="finished" id="finished" aria-label="Is game finished" checked>
         <% } else { %>
             <input type="checkbox" name="finished" id="finished" aria-label="Is game finished">
