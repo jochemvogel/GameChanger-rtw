@@ -1,71 +1,25 @@
-/* === FONTS === */
+:root {
+    --body-bg-color: hsl(0, 0%, 95%);
+    --card-bg-color: hsl(0, 0%, 100%);
+    --main-bg-color: hsl(0, 0%, 98%);
+    --color-off-black: hsl(0, 0%, 11%);
 
-/* bangers-regular - latin */
-@font-face {
-    font-family: "Bangers";
-    font-style: normal;
-    font-weight: 400;
-    src: url("/fonts/bangers-v13-latin/bangers-v13-latin-regular.eot"); /* IE9 Compat Modes */
-    src: local(""),
-        url("/fonts/bangers-v13-latin/bangers-v13-latin-regular.eot?#iefix")
-            format("embedded-opentype"),
-        /* IE6-IE8 */
-            url("/fonts/bangers-v13-latin/bangers-v13-latin-regular.woff2")
-            format("woff2"),
-        /* Super Modern Browsers */
-            url("/fonts/bangers-v13-latin/bangers-v13-latin-regular.woff")
-            format("woff"),
-        /* Modern Browsers */
-            url("/fonts/bangers-v13-latin/bangers-v13-latin-regular.ttf")
-            format("truetype"),
-        /* Safari, Android, iOS */
-            url("/fonts/bangers-v13-latin/bangers-v13-latin-regular.svg#Bangers")
-            format("svg"); /* Legacy iOS */
-}
+    --color-black: hsl(0, 0%, 0%);
+    --color-white: hsl(0, 0%, 100%);
 
-/* lexend-regular - latin */
-@font-face {
-    font-family: "Lexend";
-    font-style: normal;
-    font-weight: 400;
-    src: url("/fonts/lexend-v2-latin/lexend-v2-latin-regular.eot"); /* IE9 Compat Modes */
-    src: local(""),
-        url("/fonts/lexend-v2-latin/lexend-v2-latin-regular.eot?#iefix")
-            format("embedded-opentype"),
-        /* IE6-IE8 */
-            url("/fonts/lexend-v2-latin/lexend-v2-latin-regular.woff2")
-            format("woff2"),
-        /* Super Modern Browsers */
-            url("/fonts/lexend-v2-latin/lexend-v2-latin-regular.woff")
-            format("woff"),
-        /* Modern Browsers */
-            url("/fonts/lexend-v2-latin/lexend-v2-latin-regular.ttf")
-            format("truetype"),
-        /* Safari, Android, iOS */
-            url("/fonts/lexend-v2-latin/lexend-v2-latin-regular.svg#Lexend")
-            format("svg"); /* Legacy iOS */
-}
+    --color-grey-brown: hsl(0, 0%, 34%);
+    --color-grey: hsl(0, 0%, 80%);
 
-/* lexend-700 - latin */
-@font-face {
-    font-family: "Lexend";
-    font-style: normal;
-    font-weight: 700;
-    src: url("/fonts/lexend-v2-latin/lexend-v2-latin-700.eot"); /* IE9 Compat Modes */
-    src: local(""),
-        url("/fonts/lexend-v2-latin/lexend-v2-latin-700.eot?#iefix")
-            format("embedded-opentype"),
-        /* IE6-IE8 */ url("/fonts/lexend-v2-latin/lexend-v2-latin-700.woff2")
-            format("woff2"),
-        /* Super Modern Browsers */
-            url("/fonts/lexend-v2-latin/lexend-v2-latin-700.woff")
-            format("woff"),
-        /* Modern Browsers */
-            url("/fonts/lexend-v2-latin/lexend-v2-latin-700.ttf")
-            format("truetype"),
-        /* Safari, Android, iOS */
-            url("/fonts/lexend-v2-latin/lexend-v2-latin-700.svg#Lexend")
-            format("svg"); /* Legacy iOS */
+    --btn-blue: hsl(216, 31%, 66%);
+    --color-green: hsl(120, 60%, 29%);
+    --color-red: hsl(0, 69%, 46%);
+
+    --box-shadow-inset-small: inset 1px 3px 2px rgba(0, 0, 0, 0.25);
+    --box-shadow-medium: 0px 2px 4px rgba(0, 0, 0, 0.25)
+    --box-shadow-smal: 0 1px 2px rgba(0, 0, 0, 0.25);
+
+    --body-family: 'Lexend', sans-serif;
+    --heading-family: 'Bangers', cursive;
 }
 
 body {
@@ -73,15 +27,15 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #f3f3f3;
+    background-color: var(--body-bg-color);
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: "Lexend", sans-serif;
+    font-family: var(--body-family)
 }
 
 h1 {
-    font-family: "Bangers", cursive;
+    font-family: var(--heading-family);
     font-size: 3em;
     letter-spacing: 2px;
 }
@@ -95,7 +49,7 @@ section {
     padding: 1em;
     box-shadow: rgba(0, 0, 0, 0.5) 0 1px 5px;
     margin: 1em;
-    background-color: #fefefe;
+    background-color: var(--main-bg-color);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -107,13 +61,13 @@ section {
 .match-card h3 {
     font-size: 1.25em;
     margin: 0;
-    color: #1d1d1d;
+    color: var(--color-off-black);
 }
 
 .match-card p {
     margin: 0.5em 0;
     justify-self: flex-end;
-    color: hsl(0, 0%, 34%);
+    color: var(--color-grey-brown);
     text-transform: uppercase;
     font-weight: 700;
     font-size: 0.9em;
@@ -157,8 +111,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow-medium);
 }
 
 header > h1 {
@@ -167,7 +121,7 @@ header > h1 {
 }
 
 main {
-    background-color: #fafafa;
+    background-color: var(--main-bg-color);
     width: 95%;
     min-height: 100vh;
     margin-top: 1em;
@@ -194,12 +148,12 @@ hr {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
+    background-color: var(--color-white);
     font-size: 4em;
     margin: 0 0.4em;
     height: 1.5em;
     width: 1.25em;
-    border: 2px solid #000;
+    border: 2px solid var(--color-black);
 }
 
 .score-container > div > p {
@@ -234,7 +188,7 @@ hr {
 }
 
 .top-nav h2 {
-    color: #fff;
+    color: var(--color-white);
 }
 
 .top-nav ul {
@@ -253,7 +207,7 @@ hr {
 }
 
 .top-nav ul li a {
-    color: #fff;
+    color: var(--white);
     text-decoration: none;
 }
 
@@ -263,7 +217,7 @@ hr {
     bottom: 5%;
     right: 5%;
     border-radius: 50%;
-    background-color: #ccc;
+    background-color: var(--grey);
     position: fixed;
     transition: transform 0.2s;
     display: flex;
@@ -312,7 +266,7 @@ hr {
 }
 
 .skip-to-navigation {
-    background: #ccc;
+    background: var(--grey);
     height: 30px;
     top: 0;
     left: 50%;
@@ -359,7 +313,7 @@ form
     font-size: 1em;
     margin: 0.5em 0;
     width: 100%;
-    box-shadow: inset 1px 3px 2px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--box-shadow-inset-small);
     height: 2em;
     border-radius: 0.2em;
     text-align: center;
@@ -369,7 +323,7 @@ textarea {
     font-size: 1em;
     margin: 0.5em 0;
     width: 100%;
-    box-shadow: inset 1px 3px 2px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--box-shadow-inset-small);
     vertical-align: top;
     border-radius: 0.2em;
     font-family: "Lexend", sans-serif;
@@ -381,7 +335,7 @@ form input[type="number"] {
     text-align: center;
     font-size: 1em;
     margin: 0.5em 0;
-    box-shadow: inset 1px 3px 2px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--box-shadow-inset-small);
     height: 1.5em;
     border-radius: 0.2em;
     text-align: center;
@@ -389,18 +343,18 @@ form input[type="number"] {
 
 .btn {
     border: none;
-    background-color: hsl(216, 31%, 66%);
+    background-color: var(--btn-blue);
     font-size: 1em;
     font-weight: 700;
     text-transform: uppercase;
     padding: 0.75em 2.5em;
     margin: 0.5em auto;
     border-radius: 0.25em;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--box-shadow-medium);
     align-self: center;
     width: 90%;
     max-width: 400px;
-    font-family: "Lexend", sans-serif;
+    font-family: var(--body-family);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -409,17 +363,17 @@ form input[type="number"] {
 
 .btn:active {
     transform: scale(0.95);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--box-shadow-small);
 }
 
 .add-btn {
-    background-color: hsl(120, 60%, 29%);
-    color: #f3f3f3;
+    background-color: var(color-green);
+    color: var(--body-bg-color);
 }
 
 .delete-btn {
-    background-color: hsl(0, 69%, 46%);
-    color: #f3f3f3;
+    background-color: var(--color-red);
+    color: var(--body-bg-color);
 }
 
 .comment:last-of-type {
@@ -451,7 +405,7 @@ form input[type="number"] {
     resize: both;
     overflow: hidden;
     border-radius: 1rem;
-    background: #f3f3f3;
+    background: var(--body-bg-color);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
@@ -478,7 +432,7 @@ form input[type="number"] {
 }
 
 #chat ol .received-msg {
-    color: #1d1d1d;
+    color: var(--color-off-black);
     background-color: rgba(255, 255, 255, 0.8);
     align-self: flex-start;
 }
