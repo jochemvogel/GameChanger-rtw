@@ -1,4 +1,4 @@
-const firebase = require("./firebase.js");
+const firebase = require('./firebase.js');
 
 /**
  *
@@ -7,8 +7,8 @@ const firebase = require("./firebase.js");
 async function getRawMatchesData() {
     return await firebase
         .database()
-        .ref("matches")
-        .once("value")
+        .ref('matches')
+        .once('value')
         .then((snapshot) => {
             return (data = snapshot.val());
         })
@@ -21,9 +21,9 @@ async function getRawMatchesData() {
  *
  * @returns {array} - Array with all matches
  */
- async function getMatchesArray() {
-    const data = await getRawMatchesData()
-    return Object.values(data)
+async function getMatchesArray() {
+    const data = await getRawMatchesData();
+    return Object.values(data);
 }
 
 /**
@@ -53,22 +53,26 @@ async function getFirebaseKey(matchId) {
 }
 
 function createMatch(matchInfo) {
-    firebase.database().ref("matches").push().set({
-        id: matchInfo.id,
-        team1: matchInfo.team1,
-        team2: matchInfo.team2,
-        date: matchInfo.date,
-        time: matchInfo.time,
-        score1: matchInfo.score1,
-        score2: matchInfo.score2,
-        finished: matchInfo.finished || 'off'
-    });
+    firebase
+        .database()
+        .ref('matches')
+        .push()
+        .set({
+            id: matchInfo.id,
+            team1: matchInfo.team1,
+            team2: matchInfo.team2,
+            date: matchInfo.date,
+            time: matchInfo.time,
+            score1: matchInfo.score1,
+            score2: matchInfo.score2,
+            finished: matchInfo.finished || 'off',
+        });
 }
 
 function updateMatch(matchId, updatedMatch) {
     // Insert the updated match in the right key
     let updates = {};
-    updates["/matches/" + matchId] = updatedMatch;
+    updates['/matches/' + matchId] = updatedMatch;
 
     // Execute the update
     firebase.database().ref().update(updates);
@@ -76,9 +80,9 @@ function updateMatch(matchId, updatedMatch) {
 
 function deleteMatch(matchId) {
     firebase
-    .database()
-    .ref("matches/" + matchId)
-    .remove();
+        .database()
+        .ref('matches/' + matchId)
+        .remove();
 }
 
 module.exports = {

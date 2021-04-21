@@ -1,26 +1,26 @@
-require("dotenv").config();
-var firebase = require("firebase/app");
+require('dotenv').config();
+var firebase = require('firebase/app');
 
-const express = require("express");
-const bodyParser = require("body-parser");
+const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-const adminRoutes = require("./routes/admin");
-const matchesRoutes = require("./routes/matches");
+const adminRoutes = require('./routes/admin');
+const matchesRoutes = require('./routes/matches');
 
-app.set("view engine", "ejs");
-app.set("views", "views");
+app.set('view engine', 'ejs');
+app.set('views', 'views');
 
 const middlewares = [
     bodyParser.urlencoded({ extended: false }),
-    express.static("public"),
+    express.static('public'),
 ];
 
 app.use(middlewares);
 
-app.use("/admin", adminRoutes);
+app.use('/admin', adminRoutes);
 app.use(matchesRoutes);
 
 // Uncomment when versioned assets (CSS/JS) works
@@ -31,7 +31,7 @@ app.use(matchesRoutes);
 // });
 
 // Static blog route
-app.get("/blog", (req, res) => {
+app.get('/blog', (req, res) => {
     res.sendFile(__dirname + `/client/public/blog.html`);
 });
 

@@ -1,7 +1,7 @@
-const Match = require("../models/match");
-const { getWeatherData } = require("../models/weather");
+const Match = require('../models/match');
+const { getWeatherData } = require('../models/weather');
 
-const Filters = require("../helpers/filters");
+const Filters = require('../helpers/filters');
 
 const isDevelopment = process.env.IS_DEVELOPMENT;
 
@@ -9,7 +9,7 @@ async function getMatches(req, res) {
     // TODO: Create fallback if there are no matches
     const matches = await Match.getMatchesArray();
 
-    res.render("matches/index", {
+    res.render('matches/index', {
         matches,
         isDevelopment,
     });
@@ -23,7 +23,7 @@ async function getDetails(req, res) {
 
     // Reduce API requests
     if (isDevelopment) {
-        weatherIconUrl = "http://openweathermap.org/img/wn/50d@2x.png";
+        weatherIconUrl = 'http://openweathermap.org/img/wn/50d@2x.png';
         weatherTemp = 10;
     } else {
         const weatherData = await getWeatherData();
@@ -38,7 +38,7 @@ async function getDetails(req, res) {
 
     const formattedDate = Filters.formatDate(match.date);
 
-    res.render("matches/details", {
+    res.render('matches/details', {
         match,
         formattedDate,
         weatherTemp,

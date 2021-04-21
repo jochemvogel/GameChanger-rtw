@@ -1,19 +1,19 @@
-const { v4: uuidv4 } = require("uuid");
+const { v4: uuidv4 } = require('uuid');
 
-const Match = require("../models/match");
+const Match = require('../models/match');
 
 const isDevelopment = process.env.IS_DEVELOPMENT;
 
 async function getAdmin(req, res) {
     const matches = await Match.getMatchesArray();
-    res.render("admin/index", {
+    res.render('admin/index', {
         matches,
         isDevelopment,
     });
 }
 
 function getAddMatch(req, res) {
-    res.render("admin/add-match", {
+    res.render('admin/add-match', {
         id: uuidv4(),
         isDevelopment,
     });
@@ -22,7 +22,7 @@ function getAddMatch(req, res) {
 function postAddMatch(req, res) {
     Match.createMatch(req.body);
 
-    res.redirect("/admin");
+    res.redirect('/admin');
 }
 
 async function getEditMatch(req, res) {
@@ -31,7 +31,7 @@ async function getEditMatch(req, res) {
     const matches = await Match.getMatchesArray();
     const match = matches.find((m) => m.id === matchId);
 
-    res.render("admin/edit-match", {
+    res.render('admin/edit-match', {
         match,
         isDevelopment,
     });
@@ -46,21 +46,21 @@ async function postEditMatch(req, res) {
         time: req.body.time,
         score1: req.body.score1,
         score2: req.body.score2,
-        finished: req.body.finished
+        finished: req.body.finished,
     };
     const matchId = req.body.id;
     const firebaseKey = await Match.getFirebaseKey(matchId);
-    Match.updateMatch(firebaseKey, updatedMatch)
+    Match.updateMatch(firebaseKey, updatedMatch);
 
-    res.redirect("/admin");
+    res.redirect('/admin');
 }
 
 async function postRemoveMatch(req, res) {
     const matchId = req.body.id;
     const firebaseKey = await Match.getFirebaseKey(matchId);
-    Match.deleteMatch(firebaseKey)
+    Match.deleteMatch(firebaseKey);
 
-    res.redirect("/admin");
+    res.redirect('/admin');
 }
 
 module.exports = {

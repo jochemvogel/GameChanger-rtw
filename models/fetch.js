@@ -1,4 +1,4 @@
-const fetch = require("node-fetch");
+const fetch = require('node-fetch');
 
 /**
  * @param {string} url - URL that needs to be fetched

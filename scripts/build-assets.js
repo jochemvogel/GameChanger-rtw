@@ -1,5 +1,5 @@
-const gulp = require("gulp");
+const gulp = require('gulp');
 
 return gulp
-    .src(["./src/assets/*.*", "./src/assets/**/*.*"])
-    .pipe(gulp.dest("./public/"));
+    .src(['./src/assets/*.*', './src/assets/**/*.*'])
+    .pipe(gulp.dest('./public/'));
