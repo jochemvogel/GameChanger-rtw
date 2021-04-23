@@ -56,8 +56,10 @@ async function postEditMatch(req, res) {
 }
 
 async function postRemoveMatch(req, res) {
-    const matchId = req.body.id;
+    const matchId = req.params.id;
+
     const firebaseKey = await Match.getFirebaseKey(matchId);
+
     Match.deleteMatch(firebaseKey);
 
     res.redirect('/admin');

@@ -46,6 +46,7 @@ async function getFirebaseKey(matchId) {
 
     // Find the index of the match you're editing
     const selectedMatch = (el) => el.id === matchId;
+
     const selectedMatchIndex = matches.findIndex(selectedMatch);
 
     // Get the key/id in Firebase where this match is stored
