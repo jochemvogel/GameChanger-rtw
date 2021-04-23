@@ -5,12 +5,19 @@
  * Toggles the menu
  */
 function toggleMenu(e) {
-    e.href = "javascript: void(0)";
+    e.href = 'javascript: void(0)';
 
     const body = e.parentElement;
     const topNav = body.childNodes[3];
 
-    e.classList.toggle("opened");
+    e.classList.toggle('opened');
 
     topNav.hidden = !topNav.hidden;
+}
+
+
+if (typeof newMatchBox !== 'undefined') {
+    socket.on('new-match', () => {
+        newMatchBox.hidden = false;
+    });
 }

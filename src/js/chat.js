@@ -1,17 +1,19 @@
-chatForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+if (typeof chatForm !== 'undefined') {
+    chatForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-    let userName = e.target[0].value;
-    let chatMessage = e.target[1].value;
-    const matchId = getMatchId();
+        let userName = e.target[0].value;
+        let chatMessage = e.target[1].value;
+        const matchId = getMatchId();
 
-    if (chatMessage !== '') {
-        socket.emit('chat-message', userName, chatMessage, matchId);
-        addMessage(userName, chatMessage, true);
-        localStorage.setItem('userName', userName);
-        e.target[1].value = '';
-    }
-});
+        if (chatMessage !== '') {
+            socket.emit('chat-message', userName, chatMessage, matchId);
+            addMessage(userName, chatMessage, true);
+            localStorage.setItem('userName', userName);
+            e.target[1].value = '';
+        }
+    });
+}
 
 socket.on('chat-message', (name, message, socketMatchId) => {
     const currentMatchId = getMatchId();

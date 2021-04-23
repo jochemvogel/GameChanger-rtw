@@ -81,6 +81,10 @@ socket.on('match-updated', (match) => {
     );
 });
 
+function addNewMatch() {
+    console.log('heeey');
+}
+
 /**
  *
  * @param {object} match

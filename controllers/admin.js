@@ -4,6 +4,11 @@ const Match = require('../models/match');
 
 const isDevelopment = process.env.IS_DEVELOPMENT;
 
+const io = require('socket.io-client');
+const socket = isDevelopment
+    ? io(`http://localhost:1234/`)
+    : io(`https://gamechanger-wss.herokuapp.com/`);
+
 async function getAdmin(req, res) {
     const matches = await Match.getMatchesArray();
     res.render('admin/index', {
@@ -21,6 +26,8 @@ function getAddMatch(req, res) {
 
 function postAddMatch(req, res) {
     Match.createMatch(req.body);
+
+    socket.emit('new-match');
 
     res.redirect('/admin');
 }
