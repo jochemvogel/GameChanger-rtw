@@ -46,7 +46,7 @@ async function postEditMatch(req, res) {
         time: req.body.time,
         score1: req.body.score1,
         score2: req.body.score2,
-        finished: req.body.finished,
+        finished: req.body.finished || 'off',
     };
     const matchId = req.body.id;
     const firebaseKey = await Match.getFirebaseKey(matchId);
