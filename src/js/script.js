@@ -15,7 +15,6 @@ function toggleMenu(e) {
     topNav.hidden = !topNav.hidden;
 }
 
-
 if (typeof newMatchBox !== 'undefined') {
     socket.on('new-match', () => {
         newMatchBox.hidden = false;
