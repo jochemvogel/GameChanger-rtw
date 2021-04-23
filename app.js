@@ -1,12 +1,12 @@
 require('dotenv').config();
 
-// const express = require('express');
+const express = require('express');
 const bodyParser = require('body-parser');
 
-import express from 'express';
-import sslRedirect from 'heroku-ssl-redirect';
+// import express from 'express';
+// import sslRedirect from 'heroku-ssl-redirect';
 
-const app = express(sslRedirect());
+const app = express();
 const PORT = process.env.PORT || 4000;
 
 const adminRoutes = require('./routes/admin');
@@ -18,6 +18,7 @@ app.set('views', 'views');
 const middlewares = [
     bodyParser.urlencoded({ extended: false }),
     express.static('public'),
+    // sslRedirect(),
 ];
 
 app.use(middlewares);
