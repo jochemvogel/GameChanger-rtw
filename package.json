@@ -13,7 +13,7 @@
         "build:js": "node scripts/build-js.js",
         "build:assets": "node scripts/build-assets.js",
         "build:img": "node scripts/build-img.js",
-        "watch": "npm-run-all watch:*",
+        "watch": "npm run watch:js & npm run watch:css & npm run watch:assets & npm run watch:img",
         "watch:css": "chokidar \"src/css/*.css\" --c \"npm run build:css\"",
         "watch:js": "chokidar \"src/js/*.js\" --c \"npm run build:js\"",
         "watch:assets": "chokidar \"src/**/*.*\" --c \"npm run build:assets\"",

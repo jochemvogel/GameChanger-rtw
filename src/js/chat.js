@@ -3,23 +3,23 @@ chatForm.addEventListener('submit', (e) => {
 
     let userName = e.target[0].value;
     let chatMessage = e.target[1].value;
-    const matchId = getMatchId()
+    const matchId = getMatchId();
 
     if (chatMessage !== '') {
-        socket.emit('chat-message', userName, chatMessage, matchId)
-        addMessage(userName, chatMessage, true)
-        localStorage.setItem('userName', userName)
-        e.target[1].value = ''
+        socket.emit('chat-message', userName, chatMessage, matchId);
+        addMessage(userName, chatMessage, true);
+        localStorage.setItem('userName', userName);
+        e.target[1].value = '';
     }
-})
+});
 
-socket.on("chat-message", (name, message, socketMatchId) => {
+socket.on('chat-message', (name, message, socketMatchId) => {
     const currentMatchId = getMatchId();
 
     if (currentMatchId === socketMatchId) {
-        addMessage(name, message, false)
+        addMessage(name, message, false);
     }
-})
+});
 
 function addMessage(name, message, sender) {
     let newMessage = document.createElement('li');
@@ -42,7 +42,6 @@ function getMatchId() {
     const splittedArr = pathName.split('/');
     return splittedArr[2];
 }
-
 
 // function toggleChat() {
 //     chatSection.classList.toggle('show');
