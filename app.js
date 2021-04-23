@@ -4,7 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 // import express from 'express';
-// import sslRedirect from 'heroku-ssl-redirect';
+import sslRedirect from 'heroku-ssl-redirect';
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -18,7 +18,7 @@ app.set('views', 'views');
 const middlewares = [
     bodyParser.urlencoded({ extended: false }),
     express.static('public'),
-    // sslRedirect(),
+    sslRedirect(),
 ];
 
 app.use(middlewares);
