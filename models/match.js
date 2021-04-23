@@ -23,6 +23,11 @@ async function getRawMatchesData() {
  */
 async function getMatchesArray() {
     const data = await getRawMatchesData();
+
+    if (!data) {
+        return 'No matches';
+    }
+
     return Object.values(data);
 }
 
