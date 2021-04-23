@@ -33,7 +33,7 @@ async function getDetails(req, res) {
         const icon = weatherData.weather[0].icon;
         weatherIconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
         weatherTemp = Math.round(weatherData.main.temp - 273.15);
-        weatherCondition = weatherData.weather.description;
+        weatherCondition = weatherData.weather[0].description;
     }
 
     const matches = await Match.getMatchesArray();
