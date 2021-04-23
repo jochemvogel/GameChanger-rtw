@@ -30,9 +30,4 @@ app.use(matchesRoutes);
 //     next();
 // });
 
-// Static blog route
-app.get('/blog', (req, res) => {
-    res.sendFile(__dirname + `/client/public/blog.html`);
-});
-
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
