@@ -428,7 +428,6 @@ form input[type='number'] {
     flex-grow: 1;
     flex-direction: column;
     padding: 1rem;
-    gap: 1rem;
     height: 20rem;
     overflow-y: auto;
 }
@@ -453,10 +452,15 @@ form input[type='number'] {
 }
 
 #chat > #chat-form > input[type='text'] {
-    margin: 0.2em;
+    margin: 0;
     border: none;
     box-shadow: none;
 }
+
+#chat > #chat-form > input[type='text']:first-child {
+    border-bottom: 1px solid var(--color-off-black);
+}
+
 .weather-info > p {
     margin: 0;
 }

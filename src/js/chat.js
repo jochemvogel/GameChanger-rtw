@@ -36,7 +36,6 @@ function addMessage(name, message, sender) {
     }
 
     messages.appendChild(newMessage);
-    newMessage.scrollIntoView(true);
 }
 
 function getMatchId() {
