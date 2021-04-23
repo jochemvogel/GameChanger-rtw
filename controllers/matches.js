@@ -20,17 +20,20 @@ async function getDetails(req, res) {
 
     let weatherIconUrl;
     let weatherTemp;
+    let weatherCondition;
 
     // Reduce API requests
     if (isDevelopment) {
         weatherIconUrl = 'http://openweathermap.org/img/wn/50d@2x.png';
         weatherTemp = 10;
+        weatherCondition = 'few clouds';
     } else {
         const weatherData = await getWeatherData();
 
         const icon = weatherData.weather[0].icon;
         weatherIconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
         weatherTemp = Math.round(weatherData.main.temp - 273.15);
+        weatherCondition = weatherData.weather.description;
     }
 
     const matches = await Match.getMatchesArray();
@@ -43,6 +46,7 @@ async function getDetails(req, res) {
         formattedDate,
         weatherTemp,
         weatherIconUrl,
+        weatherCondition,
         isDevelopment,
     });
 }
