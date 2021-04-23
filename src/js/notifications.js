@@ -1,19 +1,19 @@
 function enableNotifications() {
     // Let's check if the browser supports notifications
-    if (!("Notification" in window)) {
-        alert("This browser does not support desktop notification");
+    if (!('Notification' in window)) {
+        alert('This browser does not support desktop notification');
     }
 
     // Let's check whether notification permissions have already been granted
-    else if (Notification.permission === "granted") {
-        console.log("Permission granted");
+    else if (Notification.permission === 'granted') {
+        console.log('Permission granted');
     }
 
     // Otherwise, we need to ask the user for permission
-    else if (Notification.permission !== "denied") {
+    else if (Notification.permission !== 'denied') {
         Notification.requestPermission().then(function (permission) {
-            if (permission === "granted") {
-                console.log("Permission granted");
+            if (permission === 'granted') {
+                console.log('Permission granted');
             }
         });
     }
@@ -59,10 +59,10 @@ function updateGame(id, team1, team2, score1, score2, finished) {
         score2,
         finished,
     };
-    socket.emit("match-updated", match);
+    socket.emit('match-updated', match);
 }
 
-socket.on("match-updated", (match) => {
+socket.on('match-updated', (match) => {
     /*
     Would like to make this dynamic, but I haven't found a way to store the previous values
     You have to either save the old value or create a watcher that will watch the old values
