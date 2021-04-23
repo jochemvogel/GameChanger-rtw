@@ -2,8 +2,9 @@ require('dotenv').config();
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const sslRedirect = require('heroku-ssl-redirect');
 
-const app = express();
+const app = express(sslRedirect());
 const PORT = process.env.PORT || 4000;
 
 const adminRoutes = require('./routes/admin');
