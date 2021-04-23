@@ -3,7 +3,7 @@ const terser = require('gulp-terser');
 const concat = require('gulp-concat');
 
 return gulp
-    .src(['./src/js/init.js', './src/js/*.js'])
+    .src(['./src/js/service-worker.js', './src/js/init.js', './src/js/*.js'])
     .pipe(concat('bundle.min.js'))
     .pipe(terser({ mangle: false }))
     .pipe(gulp.dest('./public/js'));
