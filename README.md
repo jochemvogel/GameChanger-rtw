@@ -86,7 +86,7 @@ Code examples can be found in the [Wiki](https://github.com/jochemvogel/gamechan
 
 </details>
 
-<details>
+</details>
 
 <details>
 
@@ -299,3 +299,7 @@ It copies all the assets and place it in the `/public` folder. There is also ano
 - Firebase Docs ([https://firebase.google.com/docs/database/web/start](https://firebase.google.com/docs/database/web/start))
 - Notification API Docs ([https://developer.mozilla.org/en-US/docs/Web/API/Notification](https://developer.mozilla.org/en-US/docs/Web/API/Notification))
 - Socket IO Docs ([https://socket.io/](https://socket.io/))
+
+## Backlog
+The backlog can be found in the [Projects section](https://github.com/jochemvogel/gamechanger-rtw/projects/2)
+
