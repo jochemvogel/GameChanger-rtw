@@ -61,7 +61,21 @@ function updateGame(id, team1, team2, score1, score2, finished) {
         score2,
         finished,
     };
+
     socket.emit('match-updated', match);
+
+    /* TODO:
+
+    It's giving the old value of the match right now. Can't give the new values client side, so I've to do that server side.
+    In order to do that, I still need to emit the oldValues and then need to make a connection to Firebase on the WSS
+    Then I can emit both that oldMatch and the newMatch
+    Client side I can check which update needs to be appear. I.e. :
+        - newMatch.score1 > oldMatch.score1 => newMatch.team1 has scored!
+        - newMatch.finished === 'on' && oldMatch.finished === 'off' => The match is finished
+
+    It'll simply take too much time to create this (because of all those exceptions)
+    For now it's showing the old values
+    */
 }
 
 socket.on('match-updated', (match) => {
@@ -88,7 +102,7 @@ socket.on('match-updated', (match) => {
     }
 
     newNotification(
-        `${match.team1} - ${match.team2}`,
+        `${match.team1} - ${match.team2} (${match.score1}-${match.score2})`,
         `Game is updated!`,
         match
     );
