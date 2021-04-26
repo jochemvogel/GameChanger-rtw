@@ -1,4 +1,6 @@
 function enableNotifications() {
+    addMatchIdInLS();
+
     // Let's check if the browser supports notifications
     if (!('Notification' in window)) {
         alert('This browser does not support desktop notification');
@@ -74,16 +76,23 @@ socket.on('match-updated', (match) => {
     const title = notificationTitle(match);
     const body = notificationBody(match);
 
+    let subscribedMatchesArr = localStorage.getItem('subscribedMatches');
+    subscribedMatchesArr = JSON.parse(subscribedMatchesArr);
+    if (subscribedMatchesArr === null) {
+        return;
+    }
+
+    const clientIsSubscribed = subscribedMatchesArr.includes(match.id);
+    if (!clientIsSubscribed) {
+        return;
+    }
+
     newNotification(
         `${match.team1} - ${match.team2}`,
         `Game is updated!`,
         match
     );
 });
-
-function addNewMatch() {
-    console.log('heeey');
-}
 
 /**
  *
@@ -100,3 +109,38 @@ function notificationTitle(match) {}
  * Dynamic title based on change
  */
 function notificationBody(match) {}
+
+/**
+ * Gets the ID of the match based on the url param
+ *
+ * @returns {string} - ID of the match
+ */
+function getMatchId() {
+    const pathName = document.location.pathname;
+    const splittedArr = pathName.split('/');
+    return splittedArr[2];
+}
+
+/**
+ * Adds the current match ID in the array with subscribed matches (notifications)
+ */
+function addMatchIdInLS() {
+    const currentMatchId = getMatchId();
+
+    let subscribedMatchesArrInLS = localStorage.getItem('subscribedMatches')
+    subscribedMatchesArrInLS = JSON.parse(subscribedMatchesArrInLS);
+
+    // Remove the 1, 2 & 3 from array (dummy content)
+    if (subscribedMatchesArrInLS.includes(1)) {
+        subscribedMatchesArrInLS.splice(0, 3);
+    }
+
+    const matchAlreadyExists = subscribedMatchesArrInLS.includes(currentMatchId)
+
+    if (!matchAlreadyExists) {
+        subscribedMatchesArrInLS.push(currentMatchId)
+        localStorage.setItem('subscribedMatches', JSON.stringify(subscribedMatchesArrInLS));
+    } else {
+        console.log('Notications are already enabled for this match');
+    }
+}

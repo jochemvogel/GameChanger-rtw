@@ -38,6 +38,11 @@ function addMessage(name, message, isSender) {
     messages.appendChild(newMessage);
 }
 
+/**
+ * Gets the ID of the match based on the url param
+ *
+ * @returns {string} - ID of the match
+ */
 function getMatchId() {
     const pathName = document.location.pathname;
     const splittedArr = pathName.split('/');
