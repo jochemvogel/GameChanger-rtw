@@ -23,11 +23,11 @@ socket.on('chat-message', (name, message, socketMatchId) => {
     }
 });
 
-function addMessage(name, message, sender) {
+function addMessage(name, message, isSender) {
     let newMessage = document.createElement('li');
     newMessage.classList.add('msg');
 
-    if (sender) {
+    if (isSender) {
         newMessage.innerText = message;
         newMessage.classList.add('sent-msg');
     } else {
