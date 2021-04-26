@@ -36,37 +36,62 @@
 </div>
 
 <section>
-    <% if (matches !== undefined & matches !== 'No matches') { %> <% for(var i =
-    0; i < matches.length; i++) { %>
+    <!-- 1). If there are no matches -->
+    <% if (matches !== undefined & matches !== 'No matches') { %>
 
-    <article class="match-card">
-        <h3><%= matches[i].team1 %> - <%= matches[i].team2 %></h3>
+        <!-- Loop through matches -->
+        <% for(var i = 0; i < matches.length; i++) { %>
 
-        <% if (matches[i].score1 && matches[i].score2) { %>
+        <article class="match-card">
+            <h3><%= matches[i].team1 %> - <%= matches[i].team2 %></h3>
 
-        <% if (matches[i].finished === 'on') { %>
+            <!-- 2). If there are scores for both teams -->
+            <% if (matches[i].score1 && matches[i].score2) { %>
 
-        <p><%= matches[i].score1 %> - <%= matches[i].score2 %> ✅</p>
+                <!-- 3). If the game is finished -->
+                <% if (matches[i].finished === 'on') { %>
 
-        <% } else { %>
+                    <p><%= matches[i].score1 %> - <%= matches[i].score2 %> ✅</p>
 
-        <p><%= matches[i].score1 %> - <%= matches[i].score2 %> (playing..)</p>
+                <!-- 3). Else (score, but not finished => playing) -->
+                <% } else { %>
 
-        <% }%> <% } else { %>
-        <p>Starting at <%= matches[i].time %></p>
-        <% } %>
+                    <p><%= matches[i].score1 %> - <%= matches[i].score2 %> (playing..)</p>
 
-        <a href="/details/<%= matches[i].id %>">
-            <button>
-                <span> Details </span>
-            </button>
-        </a>
-    </article>
+                <% }%>
+
+                <!-- 2). Else (if both teams do not have a score) -->
+                <% } else { %>
+
+                    <% if (matches[i].date === today) { %>
+                        <p>
+                            Starting at <%= matches[i].time %>
+                        </p>
+
+                    <!-- 3). Else (date differs) -->
+                    <% } else { %>
+                        <p>
+                            <%= matches[i].date %>
+                        </p>
+                    <% } %>
+                <% } %>
+
+            <a href="/details/<%= matches[i].id %>">
+                <button>
+                    <span> Details </span>
+                </button>
+            </a>
+        </article>
 
     <hr class="css-disabled" />
 
-    <% } %> <% } else{ %>
+    <% } %>
+
+    <!-- 1). Else (no matches) -->
+    <% } else{ %>
+
     <p>There are no matches</p>
+
     <% } %>
 </section>
 

@@ -8,10 +8,14 @@ const isDevelopment = process.env.IS_DEVELOPMENT;
 async function getMatches(req, res) {
     const matches = await Match.getMatchesArray();
 
+    const todayObject = new Date();
+    const todayString = todayObject.toISOString().split('T')[0];
+
     res.render('matches/index', {
         matches,
         isDevelopment,
-        disabledBtn: 'all'
+        disabledBtn: 'all',
+        today: todayString
     });
 }
 
@@ -55,9 +59,6 @@ async function getDetails(req, res) {
 
 async function postTodayMatches(req, res) {
     const matches = await Match.getMatchesArray();
-
-    const today = new Date();
-    const todayString = today.toISOString().split('T')[0];
 
     let filteredMatches = [];
 
