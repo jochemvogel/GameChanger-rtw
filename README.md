@@ -292,6 +292,15 @@ First all the css is getting concatenated, then it's getting formatted (with cle
 
 It copies all the assets and place it in the `/public` folder. There is also another script named `build-img.js`. It's basically doing the same, but it has a different output directory.
 
+## Service Worker
+I added a service working, because this improves the UX. It'll cache the js/css and will cache every page the user visited. This will allow the user to (offline) visit pages of matches he/see already visited (online).
+
+The service worker file can be found [here](https://github.com/jochemvogel/gamechanger-rtw/blob/main/src/assets/sw.js).
+
+I have to say that I didn't spend much time on it. For example: I don't have a offline page and I'm not using cache busting, yet. I choose to spend not too much time on it, because I've already done it before and I got a lot of other things to do.
+
+This kind of illustrates this project: tons of ideas and not enough time.
+
 ## Sources
 
 - Stackoverflow ❤️ ([https://stackoverflow.com/](https://stackoverflow.com/))
