@@ -1,3 +1,4 @@
+
 # GameChanger - Change game data
 
 **[Live link](https://gamechanger-rtw.herokuapp.com/)**
@@ -11,14 +12,12 @@ In GameChanger you can get an overview of different sport games. Besides that yo
 <table>
 
 <tr>
-
-<td align="center"><a href="#nerd_face-usage">🤓 Course <a></td>
-<td align="center"><a href="#dizzy-concepts">💫 Concepts <a></td>
-<td align="center"><a href="#eyeglasses-overview"> 👓 Overview <a></td>
-<td align="center"><a href="#gear-installation">⚙️ Installation<a></td>
-<td align="center"><a href="#open_file_folder-folder-structure">🗂 Folder Structure<a></td>
-<td align="center"><a href="#anger-others">💢 Others<a></td>
-
+    <td align="center"><a href="#nerd_face-usage">🤓 Course <a></td>
+    <td align="center"><a href="#dizzy-concepts">💫 Concepts <a></td>
+    <td align="center"><a href="#eyeglasses-overview"> 👓 Overview <a></td>
+    <td align="center"><a href="#gear-installation">⚙️ Installation<a></td>
+    <td align="center"><a href="#open_file_folder-folder-structure">🗂 Folder Structure<a></td>
+    <td align="center"><a href="#anger-others">💢 Others<a></td>
 </tr>
 
 </table>
@@ -69,23 +68,25 @@ Didn't choose this one. I have chosen a chat instead.
 
 Extra note: the dotted line is the socket connection
 
-![Data Lifecycle](https://i.ibb.co/CQywn4c/data-lifecycle-copy.jpg)
+![Data Lifecycle](https://i.ibb.co/3kgP4T8/data-lifecycle-diagram.png)
+
+**Socket Events**
+
+*match-updated*
+When a match is updated this event will be fired/emitted. It takes the match (object) as parameter.
+
+
+*chat-message*
+When there is a new chat message this event will be fired/emitted. It takes the userName, chatMessage and the matchId as parameters.
+
+*new-match*
+When there is a new match created this event will be fired/emitted. No parameters, just the event.
+
+Code examples can be found in the [Wiki](https://github.com/jochemvogel/gamechanger-rtw/wiki/Data-Lifecycle-Diagram).
 
 </details>
 
 <details>
-
-<summary>Socket functionality</summary>
-
-There are several options for this. One of these is the Notification API. I already have this working, so I only need to add the socket functionality. For now it is still static (match x has changed), but eventually this can also be dynamic. I hope that I'm be able to achieve that in the time frame.
-
-Live blog. I want to have a live blog on every detail page. To start with, I want to have a global live blog (similar to a chat), but ultimately I want to do this per match. I don't know exactly how or what, but I think a combination of a database & rooms on socket.io.
-
-The next step could be reactions. A live feed with responses to every match. Similar to the live blog, but then reactions from users.
-
-This is sufficient for now, but I can continue with some functionality. If I get that far, I will expand this. For now I think I am happy with this.
-
-</details>
 
 <details>
 
@@ -239,7 +240,7 @@ You won't get the same matches, but you can get this project locally.
 
 <summary>Screenshot folder structure</summary>
 
-![Folder structure](https://i.ibb.co/bBypCKG/Screenshot-2021-04-16-at-14-32-31.png)
+![Folder structure](https://i.ibb.co/sJqbKB9/Screenshot-2021-04-26-at-16-57-40.png)
 
 </details>
 
@@ -293,4 +294,8 @@ It copies all the assets and place it in the `/public` folder. There is also ano
 
 ## Sources
 
-...
+- Stackoverflow ❤️ ([https://stackoverflow.com/](https://stackoverflow.com/))
+- OpenWeatherAPI Docs ([https://openweathermap.org/](https://openweathermap.org/))
+- Firebase Docs ([https://firebase.google.com/docs/database/web/start](https://firebase.google.com/docs/database/web/start))
+- Notification API Docs ([https://developer.mozilla.org/en-US/docs/Web/API/Notification](https://developer.mozilla.org/en-US/docs/Web/API/Notification))
+- Socket IO Docs ([https://socket.io/](https://socket.io/))
