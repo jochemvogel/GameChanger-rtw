@@ -36,7 +36,7 @@
 </div>
 
 <section>
-    <!-- 1). If there are no matches -->
+    <!-- 1). If there are matches -->
     <% if (matches !== undefined & matches !== 'No matches') { %>
 
         <!-- Loop through matches -->
@@ -63,6 +63,7 @@
                 <!-- 2). Else (if both teams do not have a score) -->
                 <% } else { %>
 
+                    <!-- 3). If date is today -->
                     <% if (matches[i].date === today) { %>
                         <p>
                             Starting at <%= matches[i].time %>

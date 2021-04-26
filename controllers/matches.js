@@ -60,6 +60,9 @@ async function getDetails(req, res) {
 async function postTodayMatches(req, res) {
     const matches = await Match.getMatchesArray();
 
+    const today = new Date();
+    const todayString = today.toISOString().split('T')[0];
+
     let filteredMatches = [];
 
     matches.map(match => {
@@ -71,7 +74,8 @@ async function postTodayMatches(req, res) {
     res.render('matches/index', {
         matches: filteredMatches,
         isDevelopment,
-        disabledBtn: 'today'
+        disabledBtn: 'today',
+        today: todayString
     });
 }
 

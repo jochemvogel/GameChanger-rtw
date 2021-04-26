@@ -8,43 +8,87 @@
     </button>
 </a>
 
+<div class="filter-container">
+    <form action="/admin" method="GET">
+        <% if (disabledBtn === 'all') { %>
+            <input type="submit" value="All" disabled>
+        <% } else { %>
+            <input type="submit" value="All">
+        <% } %>
+    </form>
+
+    <form action="/admin/matches-today" method="POST">
+        <% if (disabledBtn === 'today') { %>
+            <input type="submit" value="Today" disabled>
+        <% } else { %>
+            <input type="submit" value="Today">
+        <% } %>
+    </form>
+
+    <form action="/admin/matches-finished" method="POST">
+        <% if (disabledBtn === 'finished') { %>
+            <input type="submit" value="finished" disabled>
+        <% } else { %>
+            <input type="submit" value="finished">
+        <% } %>
+    </form>
+</div>
+
 <section>
+    <!-- 1). If there are matches -->
+    <% if (matches !== undefined & matches !== 'No matches') { %>
 
-<% if (matches !== undefined & matches !== 'No matches') { %>
+        <!-- Loop through matches -->
+        <% for(var i = 0; i < matches.length; i++) { %>
 
-	<% for(var i = 0; i < matches.length; i++) { %>
+            <article class="match-card">
+                <h3><%= matches[i].team1 %> - <%= matches[i].team2 %></h3>
 
-        <article class="match-card">
-            <h3><%= matches[i].team1 %> - <%= matches[i].team2 %></h3>
-            <% if (matches[i].score1 && matches[i].score2) { %>
+                <!-- 2). If there are scores for both teams -->
+                <% if (matches[i].score1 && matches[i].score2) { %>
 
-                <% if (matches[i].finished === 'on') { %>
-                    <p><%= matches[i].score1 %> - <%= matches[i].score2 %> ✅</p>
+                    <!-- 3). If the game is finished -->
+                    <% if (matches[i].finished === 'on') { %>
+                        <p><%= matches[i].score1 %> - <%= matches[i].score2 %> ✅</p>
+
+                    <!-- 3). Else (score, but not finished => playing) -->
+                    <% } else { %>
+                        <p><%= matches[i].score1 %> - <%= matches[i].score2 %> (playing..)</p>
+                    <% }%>
+
+                <!-- 2). Else (if both teams do not have a score) -->
                 <% } else { %>
-                    <p><%= matches[i].score1 %> - <%= matches[i].score2 %> (playing..)</p>
-                <% }%>
+                    <!-- 3). If date is today -->
+                    <% if (matches[i].date === today) { %>
+                        <p>
+                            Starting at <%= matches[i].time %>
+                        </p>
 
-            <% } else { %>
-                <p>Starting at <%= matches[i].time %>  </p>
-            <% } %>
+                    <!-- 3). Else (date differs) -->
+                    <% } else { %>
+                        <p>
+                            <%= matches[i].date %>
+                        </p>
+                    <% } %>
+                <% } %>
 
-            <a href="/admin/edit-match/<%= matches[i].id %>">
-                <button class="edit-match-btn">
-                    <span>
-                        Edit Match
-                    </span>
-                </button>
-            </a>
-        </article>
+                <a href="/admin/edit-match/<%= matches[i].id %>">
+                    <button class="edit-match-btn">
+                        <span>
+                            Edit Match
+                        </span>
+                    </button>
+                </a>
+            </article>
 
-        <hr class="css-disabled" >
+            <hr class="css-disabled" >
 
-	<% } %>
+        <% } %>
 
-
-<% } else{ %>
-	<p>There are no matches</p>
-<% } %>
+    <!-- 1). Else (no matches) -->
+    <% } else{ %>
+        <p>There are no matches</p>
+    <% } %>
 
 </section>
 

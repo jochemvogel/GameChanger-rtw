@@ -9,6 +9,8 @@ router
     .post('/add-match', adminController.postAddMatch)
     .get('/edit-match/:id', adminController.getEditMatch)
     .post('/edit-match/:id', adminController.postEditMatch)
-    .post('/remove-match/:id', adminController.postRemoveMatch);
+    .post('/remove-match/:id', adminController.postRemoveMatch)
+    .post('/matches-today', adminController.postTodayMatches)
+    .post('/matches-finished', adminController.postFinishedMatches);
 
 module.exports = router;

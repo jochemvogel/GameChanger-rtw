@@ -11,9 +11,15 @@ const socket = isDevelopment
 
 async function getAdmin(req, res) {
     const matches = await Match.getMatchesArray();
+
+    const todayObject = new Date();
+    const todayString = todayObject.toISOString().split('T')[0];
+
     res.render('admin/index', {
         matches,
         isDevelopment,
+        disabledBtn: 'all',
+        today: todayString
     });
 }
 
@@ -72,6 +78,49 @@ async function postRemoveMatch(req, res) {
     res.redirect('/admin');
 }
 
+/* = MATCHES FILTERS = */
+
+async function postTodayMatches(req, res) {
+    const matches = await Match.getMatchesArray();
+
+    const today = new Date();
+    const todayString = today.toISOString().split('T')[0];
+
+    let filteredMatches = [];
+
+    matches.map(match => {
+        if (match.date === todayString) {
+            filteredMatches.push(match)
+        }
+    })
+
+    res.render('admin/index', {
+        matches: filteredMatches,
+        isDevelopment,
+        disabledBtn: 'today',
+        today: todayString
+    });
+}
+
+
+async function postFinishedMatches(req, res) {
+    const matches = await Match.getMatchesArray();
+
+    let filteredMatches = [];
+
+    matches.map(match => {
+        if (match.finished === 'on') {
+            filteredMatches.push(match)
+        }
+    })
+
+    res.render('admin/index', {
+        matches: filteredMatches,
+        isDevelopment,
+        disabledBtn: 'finished'
+    });
+}
+
 module.exports = {
     getAdmin,
     postAddMatch,
@@ -79,4 +128,6 @@ module.exports = {
     getEditMatch,
     postEditMatch,
     postRemoveMatch,
+    postTodayMatches,
+    postFinishedMatches
 };
