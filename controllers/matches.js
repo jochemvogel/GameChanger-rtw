@@ -6,12 +6,12 @@ const Filters = require('../helpers/filters');
 const isDevelopment = process.env.IS_DEVELOPMENT;
 
 async function getMatches(req, res) {
-    // TODO: Create fallback if there are no matches
     const matches = await Match.getMatchesArray();
 
     res.render('matches/index', {
         matches,
         isDevelopment,
+        disabledBtn: 'all'
     });
 }
 
@@ -51,4 +51,47 @@ async function getDetails(req, res) {
     });
 }
 
-module.exports = { getMatches, getDetails };
+/* = MATCHES FILTERS = */
+
+async function postTodayMatches(req, res) {
+    const matches = await Match.getMatchesArray();
+
+    const today = new Date();
+    const todayString = today.toISOString().split('T')[0];
+
+    let filteredMatches = [];
+
+    matches.map(match => {
+        if (match.date === todayString) {
+            filteredMatches.push(match)
+        }
+    })
+
+    res.render('matches/index', {
+        matches: filteredMatches,
+        isDevelopment,
+        disabledBtn: 'today'
+    });
+}
+
+
+async function postFinishedMatches(req, res) {
+    const matches = await Match.getMatchesArray();
+
+    let filteredMatches = [];
+
+    matches.map(match => {
+        if (match.finished === 'on') {
+            filteredMatches.push(match)
+        }
+    })
+
+    res.render('matches/index', {
+        matches: filteredMatches,
+        isDevelopment,
+        disabledBtn: 'finished'
+    });
+}
+
+
+module.exports = { getMatches, getDetails, postTodayMatches, postFinishedMatches };

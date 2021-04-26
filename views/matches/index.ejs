@@ -8,6 +8,33 @@
     <button id="reload-btn" class="btn" onclick="location.reload()">Reload</button>
 </div>
 
+
+<div class="filter-container">
+    <form action="/" method="GET">
+        <% if (disabledBtn === 'all') { %>
+            <input type="submit" value="All" disabled>
+        <% } else { %>
+            <input type="submit" value="All">
+        <% } %>
+    </form>
+
+    <form action="/matches-today" method="POST">
+        <% if (disabledBtn === 'today') { %>
+            <input type="submit" value="Today" disabled>
+        <% } else { %>
+            <input type="submit" value="Today">
+        <% } %>
+    </form>
+
+    <form action="/matches-finished" method="POST">
+        <% if (disabledBtn === 'finished') { %>
+            <input type="submit" value="finished" disabled>
+        <% } else { %>
+            <input type="submit" value="finished">
+        <% } %>
+    </form>
+</div>
+
 <section>
     <% if (matches !== undefined & matches !== 'No matches') { %> <% for(var i =
     0; i < matches.length; i++) { %>
